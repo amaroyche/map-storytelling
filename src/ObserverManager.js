@@ -49,65 +49,67 @@ const sortSectionsById = () => {
   })
 }
 
-export const ObserverSetup = (callback) => {
-  let sections = document.querySelectorAll('section')
+export const ObserverSetup = () => {
+  return new Promise(resolve => {
+    let sections = document.querySelectorAll('section')
 
-  sections.forEach((sectionElement, sIdx) => {
-    if (!sectionElement.id) {
-      console.warn(`Section element does not have ID associated.`, sectionElement)
+    sections.forEach((sectionElement, sIdx) => {
+      if (!sectionElement.id) {
+        console.warn(`Section element does not have ID associated.`, sectionElement)
+      }
+      const section = SECTIONS.find(s => s.id === sectionElement.id)
+      if (section) {
+        // assign this sectionElement to section
+        section.element = sectionElement
+      } else {
+        // creating section for sectionElement
+        const staticSource = new Section({
+          id: sIdx.toString().padStart(2, '0') + '_section',
+          element: sectionElement,
+        })
+        SECTIONS.push(staticSource)
+
+        if (DEBUG) console.log(`Creating static source for sectionElement ${staticSource.id}`)
+      }
+    })
+
+    // must sort according to layout and ids (important for proper calculations)
+    sortSectionsById()
+
+    if (DEBUG) console.info(SECTIONS)
+
+    SECTIONS.forEach(section => {
+      const progress = section.element.querySelector('progress')
+      if (progress) {
+        if (DEBUG) console.info(`${section.id} contains progress element`)
+        section.progressElement = progress
+      }
+      section.measure()
+    })
+
+    scroll_indicator = document.querySelector('#scroll_indicator')
+
+    ob_wrapper = document.querySelector('#ob_wrapper')
+    ob_scroll_y = document.querySelector('#ob_scroll_y')
+    ob_scroll_percent = document.querySelector('#ob_scroll_percent')
+    ob_section = document.querySelector('#ob_section')
+    ob_section_height = document.querySelector('#ob_section_height')
+    ob_section_x = document.querySelector('#ob_section_x')
+    ob_section_percent = document.querySelector('#ob_section_percent')
+
+    // notify that map is loaded at this point
+    SECTIONS.forEach(section => {
+      section.mapLoaded()
+    })
+
+    if (DEBUG) {
+      ob_wrapper.style.display = 'block'
     }
-    const section = SECTIONS.find(s => s.id === sectionElement.id)
-    if (section) {
-      // assign this sectionElement to section
-      section.element = sectionElement
-    } else {
-      // creating section for sectionElement
-      const staticSource = new Section({
-        id: sIdx.toString().padStart(2, '0') + '_section',
-        element: sectionElement,
-      })
-      SECTIONS.push(staticSource)
 
-      if (DEBUG) console.log(`Creating static source for sectionElement ${staticSource.id}`)
-    }
+    ObserverOnScroll()
+
+    resolve()
   })
-
-  // must sort according to layout and ids (important for proper calculations)
-  sortSectionsById()
-
-  if (DEBUG) console.info(SECTIONS)
-
-  SECTIONS.forEach(section => {
-    const progress = section.element.querySelector('progress')
-    if (progress) {
-      if (DEBUG) console.info(`${section.id} contains progress element`)
-      section.progressElement = progress
-    }
-    section.measure()
-  })
-
-  scroll_indicator = document.querySelector('#scroll_indicator')
-
-  ob_wrapper = document.querySelector('#ob_wrapper')
-  ob_scroll_y = document.querySelector('#ob_scroll_y')
-  ob_scroll_percent = document.querySelector('#ob_scroll_percent')
-  ob_section = document.querySelector('#ob_section')
-  ob_section_height = document.querySelector('#ob_section_height')
-  ob_section_x = document.querySelector('#ob_section_x')
-  ob_section_percent = document.querySelector('#ob_section_percent')
-
-  // notify that map is loaded at this point
-  SECTIONS.forEach(section => {
-    section.mapLoaded()
-  })
-
-  ObserverOnScroll()
-
-  callback()
-
-  if (DEBUG) {
-    ob_wrapper.style.display = 'block'
-  }
 }
 
 export const ObserverOnScroll = () => {
@@ -136,6 +138,8 @@ export const ObserverOnScroll = () => {
     active_section.onScroll()
 
     if (DEBUG) {
+      ob_scroll_y.innerText = window.scrollY
+      ob_scroll_percent.innerText = overallPercent
       ob_section.innerText = active_section.id
       ob_section_height.innerText = Math.round(active_section.bbox.height)
       ob_section_x.innerText = Math.floor(active_section.position)

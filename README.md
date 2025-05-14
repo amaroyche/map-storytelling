@@ -46,7 +46,7 @@ export const MAP_OPTIONS = {
 }
 ```
 
-Step 2: Map IDs for layers and Sources
+Step 2: Create your map IDs for layers
 ```
 const LAYER_ID = {
   LAYER_KEY: 'layer-key',
@@ -54,12 +54,12 @@ const LAYER_ID = {
 }
 ```
 
-Step 3: Map IDs for layers and Sources
+Step 3: Create your map IDs for sources
 ```
 const SOURCE_ID = {
-  SOURCE_KEY: 'source_key',
+  SOURCE_KEY: 'source-key',
+  ...
 }
-
 ```
 
 Step 4: Create data sources
@@ -77,6 +77,11 @@ export const DATA_SOURCES = [
       source.measureDataBounds()
     },
   }),
+  new Source({
+    id: SOURCE_ID.SOURCE_KEY2,
+    ...
+  }),
+]
 ```
 
 Step 5: Create layers for the map (data sources will be loaded at this point)
@@ -128,3 +133,56 @@ export const SECTIONS = [
   }),
 }
 ```
+
+Step 7: Modify index.html and add corresponding sections with ids
+```
+...
+<section id='00_section'>
+
+  <div class='section-container'>
+    <div class='section-content'>
+      <div class='content'>
+        <!-- Your content for section -->
+      </div>
+    </div>
+  </div>
+
+</section>
+...
+```
+
+**each section ID must begin with numeric characters that are used in sorting**
+
+**and must correspond to section ID defined for section in `MapConfig.js`** 
+```
+  // OK  
+  00_section
+  01_route
+  02_image
+  ...
+  
+  // Not OK
+  route_00
+  section0
+  ...
+```
+
+
+Section element with class `section-container` have modifiers for align and height
+
+`<div class='section-container'>` is by default aligned to left or:
+
+`<div class='section-container center'>` for center align of content
+
+`<div class='section-container right'>` for right align of content
+
+`<div class='section-container x2'>` for double the height (screen height) `x3, x4, x5` are also available 
+
+For vertical align use element with class `section-container`
+
+`<div class='section-content'>` is by default aligned to top or: 
+
+`<div class='section-content v-center'>` for center align of content
+
+`<div class='section-contentr v-bottom'>` for bottom align of content
+

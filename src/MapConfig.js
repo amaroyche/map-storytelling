@@ -7,9 +7,7 @@ import { lerp  } from '@src/helpers/MapHelper.js'
 const SOURCE_BY_ID = (id) => {
   return DATA_SOURCES.find(s => s.id === id)
 }
-
-export const USE_SW = true
-export const DEBUG = false
+export const DEBUG = import.meta.env.DEV && true
 export const ANIMATION_FRAME_RATE = 30
 
 export const TOKEN = 'pk.eyJ1IjoidmlsbGV3aWxzb24iLCJhIjoiY21hMDhobDY0MHR2dzJrczg1Mjk4NmQyaCJ9.1ivMnqW2XTSfy2nf1utCBQ'
@@ -128,85 +126,89 @@ export const DATA_SOURCES = [
 ]
 
 export const CreateLayers = () => {
-  MAP
-      .addLayer({
-        id: LAYER_ID.CHINA_BOUNDS,
-        type: 'line',
-        source: SOURCE_ID.CHINA_BOUNDS,
-        paint: {
-          'line-color': '#8d000c',
-          'line-width': 3,
-          'line-opacity': 0,
-        },
-      })
-      .addLayer({
-        id: LAYER_ID.CHINA_PROVINCES_BOUNDS,
-        type: 'line',
-        source: SOURCE_ID.CHINA_PROVINCES,
-        paint: {
-          'line-color': '#8d000c',
-          'line-width': 2,
-          'line-opacity': 0,
-        },
-      })
-      .addLayer({
-        id: LAYER_ID.CHINA_PROVINCES_FILL,
-        type: 'fill',
-        source: SOURCE_ID.CHINA_PROVINCES,
-        paint: {
-          'fill-color': '#8d000c',
-          'fill-opacity': 0,
-        },
-      })
-      .addLayer({
-        id: LAYER_ID.CHINA_XINJIANG_POINTS,
-        type: 'circle',
-        source: SOURCE_ID.CHINA_XINJIANG_POINTS,
-        paint: {
-          'circle-radius': 6,
-          'circle-opacity': 0,
-          'circle-color': '#B42222',
-        },
-      })
-      .addLayer({
-        id: LAYER_ID.CHINA_ROUTE,
-        type: 'circle',
-        source: SOURCE_ID.CHINA_ROUTE,
-        paint: {
-          'circle-radius': 8,
-          'circle-opacity': 0,
-          'circle-stroke-color': '#ffffff',
-          'circle-stroke-width': 2,
-          'circle-stroke-opacity': 0,
-          'circle-color': '#310006',
-        },
-        'filter': ['==', '$type', 'Point'],
-      })
-      .addLayer({
-        id: LAYER_ID.CHINA_ROUTE_LINE,
-        type: 'line',
-        source: SOURCE_ID.CHINA_ROUTE,
-        paint: {
-          'line-color': 'rgba(0,0,0,0)', // note rgba
-          'line-width': 6,
-          'line-opacity': 0.8,
-        },
-        layout: {
-          'line-cap': 'round',
-          'line-join': 'round',
-        },
-        'filter': ['==', '$type', 'LineString'],
-      })
-      .addLayer({
-        id: LAYER_ID.CHINA_FACTORIES_POINTS,
-        type: 'circle',
-        source: SOURCE_ID.CHINA_FACTORIES_POINTS,
-        paint: {
-          'circle-radius': 6,
-          'circle-opacity': 0,
-          'circle-color': '#B42222',
-        },
-      })
+  return new Promise((resolve, reject) => {
+    MAP
+        .addLayer({
+          id: LAYER_ID.CHINA_BOUNDS,
+          type: 'line',
+          source: SOURCE_ID.CHINA_BOUNDS,
+          paint: {
+            'line-color': '#8d000c',
+            'line-width': 3,
+            'line-opacity': 0,
+          },
+        })
+        .addLayer({
+          id: LAYER_ID.CHINA_PROVINCES_BOUNDS,
+          type: 'line',
+          source: SOURCE_ID.CHINA_PROVINCES,
+          paint: {
+            'line-color': '#8d000c',
+            'line-width': 2,
+            'line-opacity': 0,
+          },
+        })
+        .addLayer({
+          id: LAYER_ID.CHINA_PROVINCES_FILL,
+          type: 'fill',
+          source: SOURCE_ID.CHINA_PROVINCES,
+          paint: {
+            'fill-color': '#8d000c',
+            'fill-opacity': 0,
+          },
+        })
+        .addLayer({
+          id: LAYER_ID.CHINA_XINJIANG_POINTS,
+          type: 'circle',
+          source: SOURCE_ID.CHINA_XINJIANG_POINTS,
+          paint: {
+            'circle-radius': 6,
+            'circle-opacity': 0,
+            'circle-color': '#B42222',
+          },
+        })
+        .addLayer({
+          id: LAYER_ID.CHINA_ROUTE,
+          type: 'circle',
+          source: SOURCE_ID.CHINA_ROUTE,
+          paint: {
+            'circle-radius': 8,
+            'circle-opacity': 0,
+            'circle-stroke-color': '#ffffff',
+            'circle-stroke-width': 2,
+            'circle-stroke-opacity': 0,
+            'circle-color': '#310006',
+          },
+          'filter': ['==', '$type', 'Point'],
+        })
+        .addLayer({
+          id: LAYER_ID.CHINA_ROUTE_LINE,
+          type: 'line',
+          source: SOURCE_ID.CHINA_ROUTE,
+          paint: {
+            'line-color': 'rgba(0,0,0,0)', // note rgba
+            'line-width': 6,
+            'line-opacity': 0.8,
+          },
+          layout: {
+            'line-cap': 'round',
+            'line-join': 'round',
+          },
+          'filter': ['==', '$type', 'LineString'],
+        })
+        .addLayer({
+          id: LAYER_ID.CHINA_FACTORIES_POINTS,
+          type: 'circle',
+          source: SOURCE_ID.CHINA_FACTORIES_POINTS,
+          paint: {
+            'circle-radius': 6,
+            'circle-opacity': 0,
+            'circle-color': '#B42222',
+          },
+        })
+
+    resolve()
+  })
 }
 
 /**
@@ -461,7 +463,7 @@ export const SECTIONS = [
         lat: alongPath[1],
       }
 
-      console.log(lngLat)
+      // console.log(lngLat)
 
       if (section.currentCameraPosition) {
         const SMOOTH_FACTOR = 0.85

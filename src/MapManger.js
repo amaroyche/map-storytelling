@@ -7,19 +7,21 @@ import { MAP_OPTIONS } from '@src/MapConfig.js'
  */
 export let MAP = null
 
-export function InitializeMap(callback) {
-  // initialize map with options
-  MAP = new mapboxgl.Map(MAP_OPTIONS)
+export function InitializeMap() {
+  return new Promise((resolve) => {
+    // initialize map with options
+    MAP = new mapboxgl.Map(MAP_OPTIONS)
 
-  // disable all interactions initially
-  disableInteractions()
+    // disable all interactions initially
+    disableInteractions()
 
-  // in addition, disable boxZoom and scroll separately not to be enabled ever
-  MAP.boxZoom.disable()
-  MAP.scrollZoom.disable()
+    // in addition, disable boxZoom and scroll separately not to be enabled ever
+    MAP.boxZoom.disable()
+    MAP.scrollZoom.disable()
 
-  // add on load event
-  MAP.on('load', callback)
+    // add on load event
+    MAP.on('load', resolve)
+  })
 }
 
 export function disableInteractions() {

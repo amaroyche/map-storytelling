@@ -1,13 +1,15 @@
 import { DATA_SOURCES } from '@src/MapConfig.js'
 
-export function LoadAllData(callback) {
-  Promise.all(DATA_SOURCES.map(source => fetchData(source)))
-      .then(callback)
+export function LoadAllData() {
+  return Promise.all(DATA_SOURCES.map(source => fetchData(source)))
       .catch(error => console.error('Error loading data:', error))
 }
 
 export function AddDataSourcesToMap() {
-  DATA_SOURCES.forEach(source => source.loaded())
+  return new Promise(resolve => {
+    DATA_SOURCES.forEach(source => source.loaded())
+    resolve()
+  })
 }
 
 function fetchData(source) {
