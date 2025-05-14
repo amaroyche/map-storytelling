@@ -3,11 +3,9 @@ import Source from '@src/helpers/Source.js'
 import { MAP } from '@src/MapManger.js'
 import { along } from '@turf/turf'
 import { lerp  } from '@src/helpers/MapHelper.js'
+import { SOURCE_BY_ID } from '@src/DataManager.js'
 
-const SOURCE_BY_ID = (id) => {
-  return DATA_SOURCES.find(s => s.id === id)
-}
-export const DEBUG = import.meta.env.DEV && true
+export const DEBUG = import.meta.env.DEV && false
 export const ANIMATION_FRAME_RATE = 30
 
 export const TOKEN = 'pk.eyJ1IjoidmlsbGV3aWxzb24iLCJhIjoiY21hMDhobDY0MHR2dzJrczg1Mjk4NmQyaCJ9.1ivMnqW2XTSfy2nf1utCBQ'
@@ -126,7 +124,7 @@ export const DATA_SOURCES = [
 ]
 
 export const CreateLayers = () => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     MAP
         .addLayer({
           id: LAYER_ID.CHINA_BOUNDS,
@@ -230,24 +228,22 @@ export const SECTIONS = [
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
 
-      MAP.flyTo({
+      MAP.easeTo({
         essential: true,
         center: source.center,
         pitch: 10,
         zoom: source.zoom * 0.9,
-        speed: .9,
       })
     },
     onResize: () => {
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
 
-      MAP.flyTo({
+      MAP.easeTo({
         essential: true,
         pitch: 10,
         center: source.center,
         zoom: source.zoom * 0.9,
-        speed: .9,
       })
     },
   }),
@@ -272,7 +268,7 @@ export const SECTIONS = [
       MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 0)
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
-      MAP.flyTo({
+      MAP.easeTo({
         essential: true,
         pitch: 20,
         center: source.center,
@@ -283,7 +279,7 @@ export const SECTIONS = [
     onResize: () => {
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
-      MAP.flyTo({
+      MAP.easeTo({
         essential: true,
         center: source.center,
         zoom: source.zoom,
@@ -328,7 +324,7 @@ export const SECTIONS = [
       MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 0)
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_PROVINCES)
-      MAP.flyTo({
+      MAP.easeTo({
         essential: true,
         pitch: 20,
         center: source.center,
@@ -339,7 +335,7 @@ export const SECTIONS = [
     onResize: () => {
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_PROVINCES)
-      MAP.flyTo({
+      MAP.easeTo({
         essential: true,
         pitch: 20,
         center: source.center,
@@ -378,7 +374,7 @@ export const SECTIONS = [
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_ROUTE)
       const featureStart = source.data.features.find(f => f.id === 'start')
 
-      MAP.flyTo({
+      MAP.easeTo({
         essential: true,
         pitch: 25,
         bearing: 0,
@@ -389,7 +385,7 @@ export const SECTIONS = [
     },
     onResize: () => {
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_PROVINCES)
-      MAP.flyTo({
+      MAP.easeTo({
         essential: true,
         pitch: 25,
         bearing: 0,
@@ -435,6 +431,7 @@ export const SECTIONS = [
       section.currentPercent = fromStart ? 0 : 100
 
       section.currentCameraPosition = MAP.getCenter()
+      section.currentZoom = MAP.getZoom()
       section.startZoom = 4.9
       section.endZoom = 4
 
@@ -445,7 +442,7 @@ export const SECTIONS = [
         speed: 0.5,
       })
     },
-    onDraw(section, timeNow) {
+    onDraw(section) {
       //
       const percent = lerp(section.currentPercent, section.percent, 0.1)
       section.currentPercent = percent
@@ -466,14 +463,13 @@ export const SECTIONS = [
       // console.log(lngLat)
 
       if (section.currentCameraPosition) {
-        const SMOOTH_FACTOR = 0.85
+        const SMOOTH_FACTOR = 0.95
         lngLat.lng = lerp(lngLat.lng, section.currentCameraPosition.lng, SMOOTH_FACTOR)
         lngLat.lat = lerp(lngLat.lat, section.currentCameraPosition.lat, SMOOTH_FACTOR)
       }
       section.currentCameraPosition = lngLat
 
-      MAP.easeTo({ center: lngLat,  duration: 1000 })
-      MAP.setZoom(section.currentZoom)
+      MAP.easeTo({ center: lngLat, zoom: section.currentZoom })
 
       MAP.setPaintProperty(
           LAYER_ID.CHINA_ROUTE_LINE,
@@ -540,7 +536,7 @@ export const SECTIONS = [
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_ROUTE)
       const featureEnd = source.data.features.find(f => f.id === 'end')
-      MAP.flyTo({
+      MAP.easeTo({
         essential: true,
         pitch: 25,
         bearing: 0,
@@ -554,7 +550,7 @@ export const SECTIONS = [
     id: '06_section',
     onObserveStart: () => {
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
-      MAP.flyTo({
+      MAP.easeTo({
         essential: true,
         pitch: 20,
         center: source.center,
@@ -564,7 +560,7 @@ export const SECTIONS = [
     },
     onResize: () => {
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
-      MAP.flyTo({
+      MAP.easeTo({
         essential: true,
         center: source.center,
         zoom: source.zoom,

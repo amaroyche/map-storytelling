@@ -12,6 +12,10 @@ export function AddDataSourcesToMap() {
   })
 }
 
+export const SOURCE_BY_ID = (id) => {
+  return DATA_SOURCES.find(s => s.id === id)
+}
+
 function fetchData(source) {
   return fetch(source.url)
       .then(response => {
