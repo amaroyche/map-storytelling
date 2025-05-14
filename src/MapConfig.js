@@ -2,7 +2,7 @@ import Section from '@src/helpers/Section.js'
 import Source from '@src/helpers/Source.js'
 import { MAP } from '@src/MapManger.js'
 import { along } from '@turf/turf'
-import { lerp, easeOutCubic  } from '@src/helpers/MapHelper.js'
+import { lerp  } from '@src/helpers/MapHelper.js'
 
 const SOURCE_BY_ID = (id) => {
   return DATA_SOURCES.find(s => s.id === id)
@@ -455,12 +455,13 @@ export const SECTIONS = [
           .coordinates
 
       section.currentZoom = section.startZoom + (section.endZoom - section.startZoom) * animationPhase
-      console.log(section.currentZoom)
 
       const lngLat = {
         lng: alongPath[0],
         lat: alongPath[1],
       }
+
+      console.log(lngLat)
 
       if (section.currentCameraPosition) {
         const SMOOTH_FACTOR = 0.85

@@ -4,9 +4,9 @@ import { defineConfig } from 'vite'
 export const viteEntryPoints = {
   main: path.resolve(__dirname, 'index.html'),
 }
-export const viteAnalyzeEntryPoints = {
-  main: path.resolve(__dirname, 'index.html'),
-}
+// export const viteAnalyzeEntryPoints = {
+//   main: path.resolve(__dirname, 'index.html'),
+// }
 
 export const aliases = [
   {
