@@ -430,7 +430,7 @@ export const SECTIONS = [
       section.sourceroute = featureRoute
       section.currentPercent = fromStart ? 0 : 100
 
-      section.currentCameraPosition = MAP.getCenter()
+      section.currentLngLat = MAP.getCenter()
       section.currentZoom = MAP.getZoom()
       section.startZoom = 4.9
       section.endZoom = 4
@@ -453,21 +453,19 @@ export const SECTIONS = [
           .geometry
           .coordinates
 
-      section.currentZoom = section.startZoom + (section.endZoom - section.startZoom) * animationPhase
-
       const lngLat = {
         lng: alongPath[0],
         lat: alongPath[1],
       }
-
       // console.log(lngLat)
 
-      if (section.currentCameraPosition) {
-        const SMOOTH_FACTOR = 0.95
-        lngLat.lng = lerp(lngLat.lng, section.currentCameraPosition.lng, SMOOTH_FACTOR)
-        lngLat.lat = lerp(lngLat.lat, section.currentCameraPosition.lat, SMOOTH_FACTOR)
+      if (section.currentLngLat) {
+        lngLat.lng = lerp(lngLat.lng, section.currentLngLat.lng,  0.9)
+        lngLat.lat = lerp(lngLat.lat, section.currentLngLat.lat,  0.9)
       }
-      section.currentCameraPosition = lngLat
+      section.currentLngLat = lngLat
+
+      section.currentZoom = section.startZoom + (section.endZoom - section.startZoom) * animationPhase
 
       MAP.easeTo({ center: lngLat, zoom: section.currentZoom })
 
