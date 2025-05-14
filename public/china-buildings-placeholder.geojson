@@ -54,8 +54,7 @@
 					]
 				],
 				"type": "Polygon"
-			},
-			"id": 0
+			}
 		},
 		{
 			"type": "Feature",
@@ -94,8 +93,7 @@
 					]
 				],
 				"type": "Polygon"
-			},
-			"id": 1
+			}
 		},
 		{
 			"type": "Feature",
@@ -118,8 +116,7 @@
 					]
 				],
 				"type": "Polygon"
-			},
-			"id": 2
+			}
 		},
 		{
 			"type": "Feature",

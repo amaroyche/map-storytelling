@@ -14,6 +14,8 @@ export const MAP_OPTIONS = {
   container: 'map',
   style: 'mapbox://styles/villewilson/cm8xrkm1x000z01qr35gb2fer',
   center: [90.18741, 36.13885],
+  performanceMetricsCollection: false,
+  respectPrefersReducedMotion: false,
   zoom: 3,
 }
 
@@ -25,7 +27,8 @@ const LAYER_ID = {
   CHINA_FACTORIES_POINTS: 'china-factories-points',
   CHINA_ROUTE: 'layer-china-route',
   CHINA_ROUTE_LINE: 'layer-china-route-line',
-  BUILDINGS: null,
+  CHINA_BUILDINGS_BOUNDS: 'layer-china-buildings-bounds',
+  CHINA_BUILDINGS_FILL: 'layer-china-buildings-fill',
 }
 
 const SOURCE_ID = {
@@ -34,7 +37,7 @@ const SOURCE_ID = {
   CHINA_XINJIANG_POINTS: 'china-xinjiang-points',
   CHINA_FACTORIES_POINTS: 'china-factories-points',
   CHINA_ROUTE: 'china-route',
-  BUILDINGS: null,
+  CHINA_BUILDINGS: 'china-buildings',
 }
 
 /**
@@ -110,7 +113,18 @@ export const DATA_SOURCES = [
       source.measureDataBounds()
     },
   }),
-
+  new Source({
+    id: SOURCE_ID.CHINA_BUILDINGS,
+    type: 'json',
+    url: '/china-buildings-placeholder.geojson',
+    onLoad: (source) => {
+      source.addSourceToMap()
+      source.measureDataBounds()
+    },
+    onResize: (source) => {
+      source.measureDataBounds()
+    },
+  }),
   // we could load txt file for some text contend
   // new Source({
   //   id: 'test-txt',
@@ -166,20 +180,6 @@ export const CreateLayers = () => {
           },
         })
         .addLayer({
-          id: LAYER_ID.CHINA_ROUTE,
-          type: 'circle',
-          source: SOURCE_ID.CHINA_ROUTE,
-          paint: {
-            'circle-radius': 8,
-            'circle-opacity': 0,
-            'circle-stroke-color': '#ffffff',
-            'circle-stroke-width': 2,
-            'circle-stroke-opacity': 0,
-            'circle-color': '#310006',
-          },
-          'filter': ['==', '$type', 'Point'],
-        })
-        .addLayer({
           id: LAYER_ID.CHINA_ROUTE_LINE,
           type: 'line',
           source: SOURCE_ID.CHINA_ROUTE,
@@ -195,6 +195,20 @@ export const CreateLayers = () => {
           'filter': ['==', '$type', 'LineString'],
         })
         .addLayer({
+          id: LAYER_ID.CHINA_ROUTE,
+          type: 'circle',
+          source: SOURCE_ID.CHINA_ROUTE,
+          paint: {
+            'circle-radius': 8,
+            'circle-opacity': 0,
+            'circle-stroke-color': '#ffffff',
+            'circle-stroke-width': 2,
+            'circle-stroke-opacity': 0,
+            'circle-color': '#310006',
+          },
+          'filter': ['==', '$type', 'Point'],
+        })
+        .addLayer({
           id: LAYER_ID.CHINA_FACTORIES_POINTS,
           type: 'circle',
           source: SOURCE_ID.CHINA_FACTORIES_POINTS,
@@ -202,6 +216,27 @@ export const CreateLayers = () => {
             'circle-radius': 6,
             'circle-opacity': 0,
             'circle-color': '#B42222',
+          },
+        })
+        .addLayer({
+          id: LAYER_ID.CHINA_BUILDINGS_BOUNDS,
+          type: 'line',
+          source: SOURCE_ID.CHINA_BUILDINGS,
+          layout: {},
+          paint: {
+            'line-color': '#fffff8',
+            'line-width': 3,
+            'line-opacity': 1,
+          },
+        })
+        .addLayer({
+          id: LAYER_ID.CHINA_BUILDINGS_FILL,
+          type: 'fill',
+          source: SOURCE_ID.CHINA_BUILDINGS,
+          layout: {},
+          paint: {
+            'fill-color': '#B42222',
+            'fill-opacity': 1,
           },
         })
 
@@ -229,7 +264,6 @@ export const SECTIONS = [
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
 
       MAP.easeTo({
-        essential: true,
         center: source.center,
         pitch: 10,
         zoom: source.zoom * 0.9,
@@ -240,7 +274,6 @@ export const SECTIONS = [
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
 
       MAP.easeTo({
-        essential: true,
         pitch: 10,
         center: source.center,
         zoom: source.zoom * 0.9,
@@ -269,7 +302,6 @@ export const SECTIONS = [
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
       MAP.easeTo({
-        essential: true,
         pitch: 20,
         center: source.center,
         zoom: source.zoom,
@@ -280,7 +312,6 @@ export const SECTIONS = [
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
       MAP.easeTo({
-        essential: true,
         center: source.center,
         zoom: source.zoom,
         speed: 0.5,
@@ -325,7 +356,6 @@ export const SECTIONS = [
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_PROVINCES)
       MAP.easeTo({
-        essential: true,
         pitch: 20,
         center: source.center,
         zoom: source.zoom,
@@ -336,7 +366,6 @@ export const SECTIONS = [
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_PROVINCES)
       MAP.easeTo({
-        essential: true,
         pitch: 20,
         center: source.center,
         zoom: source.zoom,
@@ -375,7 +404,6 @@ export const SECTIONS = [
       const featureStart = source.data.features.find(f => f.id === 'start')
 
       MAP.easeTo({
-        essential: true,
         pitch: 25,
         bearing: 0,
         center: featureStart.geometry.coordinates,
@@ -386,7 +414,6 @@ export const SECTIONS = [
     onResize: () => {
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_PROVINCES)
       MAP.easeTo({
-        essential: true,
         pitch: 25,
         bearing: 0,
         center: source.center,
@@ -432,19 +459,20 @@ export const SECTIONS = [
 
       section.currentLngLat = MAP.getCenter()
       section.currentZoom = MAP.getZoom()
-      section.startZoom = 4.9
-      section.endZoom = 4
+      section.startZoom = 5
+      section.endZoom = 6
 
       MAP.setPitch(25)
       MAP.easeTo({
-        essential: true,
         zoom: section.startZoom,
         speed: 0.5,
       })
     },
     onDraw(section) {
-      //
       const percent = lerp(section.currentPercent, section.percent, 0.1)
+
+
+
       section.currentPercent = percent
       const animationPhase = percent / 100
 
@@ -460,12 +488,13 @@ export const SECTIONS = [
       // console.log(lngLat)
 
       if (section.currentLngLat) {
-        lngLat.lng = lerp(lngLat.lng, section.currentLngLat.lng,  0.9)
-        lngLat.lat = lerp(lngLat.lat, section.currentLngLat.lat,  0.9)
+        lngLat.lng = lerp(lngLat.lng, section.currentLngLat.lng,  0.85)
+        lngLat.lat = lerp(lngLat.lat, section.currentLngLat.lat,  0.85)
       }
       section.currentLngLat = lngLat
 
       section.currentZoom = section.startZoom + (section.endZoom - section.startZoom) * animationPhase
+
 
       MAP.easeTo({ center: lngLat, zoom: section.currentZoom })
 
@@ -505,6 +534,8 @@ export const SECTIONS = [
 
       MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_FILL, 'fill-opacity', 0)
 
+      MAP.setPaintProperty(LAYER_ID.CHINA_FACTORIES_POINTS, 'circle-opacity', 1)
+
       MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-opacity', 1)
       MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-width', [
         'match',
@@ -530,41 +561,28 @@ export const SECTIONS = [
           ],
       )
 
-      MAP.setPaintProperty(LAYER_ID.CHINA_FACTORIES_POINTS, 'circle-opacity', 1)
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_ROUTE)
       const featureEnd = source.data.features.find(f => f.id === 'end')
       MAP.easeTo({
-        essential: true,
         pitch: 25,
-        bearing: 0,
         center: featureEnd.geometry.coordinates,
-        zoom: 4,
-        speed: 0.5,
+        zoom: 6,
+        duration: 1500
       })
     },
   }),
   new Section({
     id: '06_section',
     onObserveStart: () => {
-      const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
       MAP.easeTo({
-        essential: true,
         pitch: 20,
-        center: source.center,
-        zoom: source.zoom,
-        speed: 0.5,
+        center: [119.148800, 36.701626],
+        zoom: 16,
+        curve: 1,
+        duration: 2500
       })
     },
-    onResize: () => {
-      const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
-      MAP.easeTo({
-        essential: true,
-        center: source.center,
-        zoom: source.zoom,
-        speed: 0.5,
-      })
-    }
    }),
   new Section({
     id: '07_section',

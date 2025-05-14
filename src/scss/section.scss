@@ -102,7 +102,6 @@ section {
 
     progress {
       position: sticky;
-
       top: 0;
       height: 100vh;
       padding: 2px;
@@ -110,12 +109,18 @@ section {
       border-radius: 0;
       opacity: 0;
       transition: opacity 0.3s ease-in;
+      background-color: transparent;
+      border: 0;
 
       &.fade-in {
         opacity: 1;
       }
     }
 
+    progress::-moz-progress-bar {
+      background-color: rgba(107, 60, 43, 0.64);
+      border-radius: 0;
+    }
     /* Webkit browsers (Chrome, Safari) */
     progress::-webkit-progress-bar {
       background-color: transparent;
