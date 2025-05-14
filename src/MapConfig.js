@@ -2,7 +2,7 @@ import Section from '@src/helpers/Section.js'
 import Source from '@src/helpers/Source.js'
 import { MAP } from '@src/MapManger.js'
 import { along } from '@turf/turf'
-import { lerp  } from '@src/helpers/MapHelper.js'
+import { lerp } from '@src/helpers/MapHelper.js'
 import { SOURCE_BY_ID } from '@src/DataManager.js'
 
 export const DEBUG = import.meta.env.DEV && false
@@ -17,6 +17,7 @@ export const MAP_OPTIONS = {
   performanceMetricsCollection: false,
   respectPrefersReducedMotion: false,
   zoom: 3,
+  antialias: true,
 }
 
 const LAYER_ID = {
@@ -222,7 +223,6 @@ export const CreateLayers = () => {
           id: LAYER_ID.CHINA_BUILDINGS_BOUNDS,
           type: 'line',
           source: SOURCE_ID.CHINA_BUILDINGS,
-          layout: {},
           paint: {
             'line-color': '#fffff8',
             'line-width': 3,
@@ -233,12 +233,23 @@ export const CreateLayers = () => {
           id: LAYER_ID.CHINA_BUILDINGS_FILL,
           type: 'fill',
           source: SOURCE_ID.CHINA_BUILDINGS,
-          layout: {},
           paint: {
-            'fill-color': '#B42222',
+            'fill-color': 'rgba(89,21,21,0.55)',
             'fill-opacity': 1,
+          }
+        })
+        .addLayer({
+          id: LAYER_ID.CHINA_BUILDINGS_FILL + 'extrude',
+          source: SOURCE_ID.CHINA_BUILDINGS,
+          type: 'fill-extrusion',
+          paint: {
+            'fill-extrusion-color': 'rgba(127,153,169,0.55)',
+            'fill-extrusion-height': 30,
+            'fill-extrusion-base': 0,
+            'fill-extrusion-opacity': 0.85,
           },
         })
+
 
     resolve()
   })
@@ -472,7 +483,6 @@ export const SECTIONS = [
       const percent = lerp(section.currentPercent, section.percent, 0.1)
 
 
-
       section.currentPercent = percent
       const animationPhase = percent / 100
 
@@ -488,8 +498,8 @@ export const SECTIONS = [
       // console.log(lngLat)
 
       if (section.currentLngLat) {
-        lngLat.lng = lerp(lngLat.lng, section.currentLngLat.lng,  0.85)
-        lngLat.lat = lerp(lngLat.lat, section.currentLngLat.lat,  0.85)
+        lngLat.lng = lerp(lngLat.lng, section.currentLngLat.lng, 0.85)
+        lngLat.lat = lerp(lngLat.lat, section.currentLngLat.lat, 0.85)
       }
       section.currentLngLat = lngLat
 
@@ -568,23 +578,49 @@ export const SECTIONS = [
         pitch: 25,
         center: featureEnd.geometry.coordinates,
         zoom: 6,
-        duration: 1500
+        bearing:0,
+        duration: 1500,
       })
     },
   }),
   new Section({
     id: '06_section',
-    onObserveStart: () => {
+    onObserveStart: (section) => {
       MAP.easeTo({
         pitch: 20,
         center: [119.148800, 36.701626],
         zoom: 16,
         curve: 1,
-        duration: 2500
+        bearing: 0,
+        duration: 1000,
       })
+      section.rotation = 0
     },
-   }),
+    onDraw(section) {
+      if (MAP.getZoom() === 16) {
+        if (!section.rotation) {
+          section.rotation = 0
+        }
+        MAP.rotateTo((section.rotation * 0.2) % 360, { duration: 0 });
+        section.rotation++
+      }
+    },
+    onObserveEnd: () => {
+      MAP.easeTo({
+        bearing: 0,
+        duration: 500,
+      })
+    }
+  }),
   new Section({
     id: '07_section',
+    onObserveStart: () => {
+      MAP.easeTo({
+        pitch: 20,
+        zoom: 17,
+        center: [119.148800, 36.701626],
+        duration: 1000,
+      })
+    }
   }),
 ]
