@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Mapping App</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <link rel='stylesheet' href='src/styles.scss'>
+</head>
+<body>
+  <!-- MAP -->
+  <div id='map'></div>
+
+  <!-- SECTIONS -->
+  <div class='sections'>
+
+    <section id='00_section' class='hero'>
+      <div>Some hero content</div>
+    </section>
+
+    <section id='01_section'>
+      <div class='section-container right'>
+        <div class='section-content v-center'>
+          <div class='content'>
+            <h2>01_section</h2>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis ipsum quis elit eleifend facilisis a et
+            turpis. Morbi congue tincidunt varius. Aliquam lacinia fermentum velit eu vulputate. Suspendisse accumsan
+            luctus sapien, vel accumsan urna fermentum in. Nam in turpis efficitur,
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id='02_section'>
+
+      <div class='section-container'>
+        <div class='section-content v-center'>
+          <div class='content'>
+            <h2>02_section</h2>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis ipsum quis elit eleifend facilisis a et
+            turpis. Morbi congue tincidunt varius. Aliquam lacinia fermentum velit eu vulputate. Suspendisse accumsan
+            luctus sapien, vel accumsan urna fermentum in. Nam in turpis efficitur,
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id='03_section'>
+
+      <div class='section-container'>
+        <div class='section-content v-center'>
+          <div class='content'>
+            <h2>03_section</h2>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis ipsum quis elit eleifend facilisis a et
+            turpis. Morbi congue tincidunt varius. Aliquam lacinia fermentum velit eu vulputate. Suspendisse accumsan
+            luctus sapien, vel accumsan urna fermentum in. Nam in turpis efficitur,
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id='04_section'>
+      <div class='section-progress sticky'>
+        <progress value='0' max='100'></progress>
+      </div>
+
+      <div class='section-container right x4'>
+        <div class='section-content sticky'>
+          <div class='content'>
+            <h2>04_section</h2>
+            Sed rhoncus faucibus lectus non molestie. Morbi rhoncus luctus quam id sagittis. Donec sollicitudin nibh
+            diam, ut consequat erat congue eget. Proin eu malesuada sem, ut sodales mauris. Phasellus tincidunt lacus a
+            turpis lobortis dignissim. Donec malesuada lectus porttitor, aliquet diam eu, placerat libero.
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id='05_section'>
+      <div class='section-container'>
+        <div class='section-content v-center'>
+          <div class='content'>
+            <h2>05_section</h2>
+            Vivamus a mauris urna. Nam volutpat orci ac neque convallis vestibulum. Integer rhoncus quam non purus
+            semper tincidunt. Suspendisse pulvinar neque a ipsum eleifend, congue lacinia augue iaculis. Fusce id dolor
+            eu metus tincidunt vestibulum non in quam. Aliquam sed dui sit amet urna rhoncus volutpat. Sed in congue
+            lacus. Duis purus libero, congue ut est sed, luctus iaculis mauris. Nam maximus vel massa vitae auctor. Nam
+            et tempor ante, tempus posuere lectus.
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id='06_section'>
+      <div class='section-container right '>
+        <div class='section-content v-bottom'>
+          <div class='content'>
+            <h2>06_section</h2>
+            Vivamus at sem eu nisl fermentum porttitor. Donec consequat urna neque, a venenatis lectus posuere
+            eleifend. Aenean eget eleifend dolor. Nam eleifend urna non augue egestas, condimentum semper tellus dictum.
+            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit. Duis aliquet fermentum arcu sed sollicitudin. Ut bibendum
+            placerat luctus. Quisque tempor nisi id eros dictum ornare. Aenean ut leo lorem. Fusce luctus diam nulla, at
+            auctor lacus dignissim vitae. In laoreet, justo sed scelerisque interdum, lorem odio dapibus nunc, ut
+            imperdiet lectus mi ut nulla.
+          </div>
+        </div>
+      </div>
+
+      <div class='section-footer '>
+        <div class='footer-content'>
+          You reached the end
+        </div>
+      </div>
+    </section>
+
+    <section id='07_section' class='footer'>
+      <div>Some footer content</div>
+    </section>
+
+  </div>
+
+  <!-- SCROLL INDICATOR -->
+  <div id='scroll_indicator' class='scroll-indicator'>
+    <div class='scroll-down-icon'></div>
+    <div>Scroll down</div>
+  </div>
+
+  <!-- Observation debugger -->
+  <div id='ob_wrapper' class='observer-debugger'>
+    <div><b>Observer</b></div>
+    <div>Section: <span id='ob_section'></span></div>
+    <div>Section Height: <span id='ob_section_height'></span></div>
+    <div>Section X: <span id='ob_section_x'></span></div>
+    <div>Section percent: <span id='ob_section_percent'>0</span>%</div>
+    ---------------------
+    <div>Scroll: <span id='ob_scroll_y'>0</span>px</div>
+    <div>Scroll: <span id='ob_scroll_percent'>0</span>%</div>
+  </div>
+
+  <script type='module' src='src/App.js'></script>
+</body>
+</html>

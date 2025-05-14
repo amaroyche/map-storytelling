@@ -1,0 +1,1130 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.993949,30.457292 ]
+    },
+    "properties": {
+    "Name_en":"Wuhan Juyamei New Materials",
+    "Location":"Hubei",
+    "Sector":"Home appliances, Electronics, Automotive",
+    "Name_ch":"武汉聚亚美新材料有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 118.365384,24.642279 ]
+    },
+    "properties": {
+    "Name_en":"Quanzhou Sanan Semiconductor Technology Co., Ltd.",
+    "Location":"Fujian",
+    "Sector":"Automotive, Electronics",
+    "Name_ch":"泉州三安半导体科技有限公司",
+    "Transfer_workers":190,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 114.1366319,30.66374573 ]
+    },
+    "properties": {
+    "Name_en":"TCL Air Conditioners (Wuhan)",
+    "Location":"Hubei",
+    "Sector":"Home appliances",
+    "Name_ch":"TCL空调器 (武汉)",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.8430833,23.27812812 ]
+    },
+    "properties": {
+    "Name_en":"Guangzhou Guiguan Technology Co. Ltd.",
+    "Location":"Guangdong",
+    "Sector":"Automotive, Electronics",
+    "Name_ch":"广州贵冠科技有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 122.1633703,37.40706652 ]
+    },
+    "properties": {
+    "Name_en":"Weihai Rixon Electronics Assembly Co. Ltd.",
+    "Location":"Shandong",
+    "Sector":"Automotive",
+    "Name_ch":"威海瑞翔电子装配有限公司",
+    "Transfer_workers":178,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 119.968713,36.25943705 ]
+    },
+    "properties": {
+    "Name_en":"Qingdao Fulin Electronics",
+    "Location":"Shandong",
+    "Sector":"Automotive",
+    "Name_ch":"青岛甫林电子有限公司",
+    "Transfer_workers":498,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 117.50622,36.699675 ]
+    },
+    "properties": {
+    "Name_en":"Wolong Electric Motors (Jinan) ",
+    "Location":"Shandong",
+    "Sector":"Home appliances",
+    "Name_ch":"卧龙电气（济南）电机有限公司",
+    "Transfer_workers":1000,
+    "Transfer_date":"2017"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 122.3120742,41.09633997 ]
+    },
+    "properties": {
+    "Name_en":"Panjin Yifeng Meat Processing Group",
+    "Location":"Liaoning",
+    "Sector":"Poultry",
+    "Name_ch":"盘锦意丰肉联加工(集团)有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.746037,39.46888988 ]
+    },
+    "properties": {
+    "Name_en":"Great Wall Food (Dalian) Co. Ltd.",
+    "Location":"Liaoning",
+    "Sector":"Poultry",
+    "Name_ch":"大成食品（大连）有限公司",
+    "Transfer_workers":229,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 114.56523,23.002568 ]
+    },
+    "properties": {
+    "Name_en":"Guotong Electric Technology (Huizhou) Co., Ltd.",
+    "Location":"Guangdong",
+    "Sector":"Home appliances",
+    "Name_ch":"国统电器科技（惠州）有限公司",
+    "Transfer_workers":788,
+    "Transfer_date":"2014"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.7763769,39.47832671 ]
+    },
+    "properties": {
+    "Name_en":"Miyasun-Great Wall Foods (Dalian) Co. Ltd.",
+    "Location":"Liaoning",
+    "Sector":"Poultry",
+    "Name_ch":"大成宫产食品有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 117.0376535,39.10100062 ]
+    },
+    "properties": {
+    "Name_en":"DaChan Wanda (Tianjin) Co. Ltd.",
+    "Location":"Tianjin",
+    "Sector":"Poultry",
+    "Name_ch":"大成万达(天津)有限公司",
+    "Transfer_workers":82,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.9899385,39.89904853 ]
+    },
+    "properties": {
+    "Name_en":"Dalian Jiajiakang Food",
+    "Location":"Liaoning",
+    "Sector":"Poultry",
+    "Name_ch":"大连佳佳康食品有限公司",
+    "Transfer_workers":682,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.4394012,31.69641402 ]
+    },
+    "properties": {
+    "Name_en":"Hubei CP Co. Ltd.",
+    "Location":"Hubei",
+    "Sector":"Poultry",
+    "Name_ch":"正大食品(湖北)",
+    "Transfer_workers":269,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.1706496,30.93009667 ]
+    },
+    "properties": {
+    "Name_en":"Li Ning (Jingmen) Industrial Park / Hubei Fulide Shoes Co., Ltd.",
+    "Location":"Hubei",
+    "Sector":"Footwear",
+    "Name_ch":"李宁(荆门)工业园 / 湖北福力德鞋业有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.9865232,30.45047424 ]
+    },
+    "properties": {
+    "Name_en":"Wuhan Furen Air Conditioning",
+    "Location":"Hubei",
+    "Sector":"Home appliances, Automotive",
+    "Name_ch":"武汉市富仁空调设备有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 114.1226515,30.47313433 ]
+    },
+    "properties": {
+    "Name_en":"Wuhan Hengfa Technology Co., Ltd.",
+    "Location":"Hubei",
+    "Sector":"Home appliances, Electronics",
+    "Name_ch":"武汉恒发科技有限公司",
+    "Transfer_workers":150,
+    "Transfer_date":"August 2019"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.328981,30.296021 ]
+    },
+    "properties": {
+    "Name_en":"Jingzhou Hongsheng Optoelectronics Technology Co., Ltd.",
+    "Location":"Hubei",
+    "Sector":"Automotive, Electronics",
+    "Name_ch":"荆州市弘晟光电科技有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 114.12337,30.476415 ]
+    },
+    "properties": {
+    "Name_en":"Wuhan Hengsheng Optoelectronics Industry Co., Ltd.",
+    "Location":"Hubei",
+    "Sector":"Home appliances, Electronics",
+    "Name_ch":"武汉恒生光电产业有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 119.450611,32.74363131 ]
+    },
+    "properties": {
+    "Name_en":"Xinglang Optical Technology (Jiangsu) Co. Ltd.",
+    "Location":"Jiangsu",
+    "Sector":"Automotive, Electronics",
+    "Name_ch":"星浪光学科技（江苏）有限公司 ",
+    "Transfer_workers":80,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.2031715,30.94793839 ]
+    },
+    "properties": {
+    "Name_en":"Hubei Hangte Equipment Manufacturing Co., Ltd.",
+    "Location":"Hubei",
+    "Sector":"Automotive",
+    "Name_ch":"湖北航特装备制造股份有限公司",
+    "Transfer_workers":81,
+    "Transfer_date":"May 2021"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 114.052972,30.427028 ]
+    },
+    "properties": {
+    "Name_en":"Wuhan Hengde Industrial Co., Ltd.",
+    "Location":"Hubei",
+    "Sector":"Home appliances, Electronics, Automotive",
+    "Name_ch":"武汉衡德实业有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.3682008,30.26438422 ]
+    },
+    "properties": {
+    "Name_en":"Jingzhou Tianyu Auto Parts",
+    "Location":"Hubei",
+    "Sector":"Automotive",
+    "Name_ch":"荆州天宇汽车配件公司",
+    "Transfer_workers":null,
+    "Transfer_date":"March 2023"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 114.14318,30.470987 ]
+    },
+    "properties": {
+    "Name_en":"Fujie (Wuhan) Electronics Co., Ltd.",
+    "Location":"Hubei",
+    "Sector":"Home appliances, Electronics",
+    "Name_ch":"福捷（武汉）电子公司",
+    "Transfer_workers":182,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 106.229016,29.55119 ]
+    },
+    "properties": {
+    "Name_en":"Chongqing Changqin Auto Parts Co., Ltd.",
+    "Location":"Chongqing",
+    "Sector":"Automotive",
+    "Name_ch":"重庆长秦汽车配件有限公司",
+    "Transfer_workers":83,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 116.8641204,33.89504961 ]
+    },
+    "properties": {
+    "Name_en":"Jinlong Electromechanical ( Huaibei ) Co., Ltd.",
+    "Location":"Anhui",
+    "Sector":"Automotive, Electronics",
+    "Name_ch":"金龙机电(淮北)有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.0816,22.5786 ]
+    },
+    "properties": {
+    "Name_en":"Hisense (Guangdong) Air Conditioning Co., Ltd.",
+    "Location":"Guangdong",
+    "Sector":"Home appliances",
+    "Name_ch":"海信（广东）空调有限公司",
+    "Transfer_workers":156,
+    "Transfer_date":"January 2018"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 120.38076,36.31838 ]
+    },
+    "properties": {
+    "Name_en":"Qingdao Shengdarun Electronics Co., Ltd.",
+    "Location":"Shandong",
+    "Sector":"Automotive",
+    "Name_ch":"青岛晟达润电子有限公司",
+    "Transfer_workers":26,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.038836,32.068767 ]
+    },
+    "properties": {
+    "Name_en":"Hong Bang Die Casting （Nantong） Co.,Ltd.",
+    "Location":"Jiangsu",
+    "Sector":"Automotive",
+    "Name_ch":"雄邦压铸(南通)有限公司",
+    "Transfer_workers":20,
+    "Transfer_date":"December 2018"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 117.505602,39.066334 ]
+    },
+    "properties": {
+    "Name_en":"Tianjin Xiongbang Die Casting Co. Ltd.",
+    "Location":"Tianjin",
+    "Sector":"Automotive",
+    "Name_ch":"天津雄邦压铸有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 119.828027,31.410605 ]
+    },
+    "properties": {
+    "Name_en":"Jiangsu Wencan Die Casting Co., Ltd.",
+    "Location":"Jiangsu",
+    "Sector":"Automotive",
+    "Name_ch":"江苏文灿压铸有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name_en":"Kehui (Fogang) Circuit Co., Ltd.",
+    "Location":"Guangdong",
+    "Sector":"Automotive",
+    "Name_ch":"科惠(佛冈)电路有限公司",
+    "Transfer_workers":70,
+    "Transfer_date":"April 2020"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 119.864011,32.41597 ]
+    },
+    "properties": {
+    "Name_en":"Lens Precision (Taizhou) Co. Ltd.",
+    "Location":"Jiangsu",
+    "Sector":"Automotive, Electronics",
+    "Name_ch":"蓝思精密(泰州)有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":"December 2022"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9389,28.2278 ]
+    },
+    "properties": {
+    "Name_en":"Changsha Lens Technology Co., Ltd.",
+    "Location":"Hunan",
+    "Sector":"Automotive, Electronics",
+    "Name_ch":"长沙蓝思科技有限公司",
+    "Transfer_workers":2442,
+    "Transfer_date":"August 2018"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 114.078656,30.34189076 ]
+    },
+    "properties": {
+    "Name_en":"Hubei KAIT Automotive Electronic & Electrical Systems Co., Ltd.",
+    "Location":"Hubei",
+    "Sector":"Automotive",
+    "Name_ch":"开特汽车电子电器系统股份有限公司",
+    "Transfer_workers":120,
+    "Transfer_date":"November 2020"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 118.4935412,37.69944939 ]
+    },
+    "properties": {
+    "Name_en":"Dongying Boda Food",
+    "Location":"Shandong",
+    "Sector":"Poultry",
+    "Name_ch":"东营市博大食品有限责任公司",
+    "Transfer_workers":256,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.2969,23.3343 ]
+    },
+    "properties": {
+    "Name_en":"Guangzhou Wanbao Group Compressor Co., Ltd.",
+    "Location":"Guangdong",
+    "Sector":"Home appliances",
+    "Name_ch":"广州万宝集团压缩机有限公司",
+    "Transfer_workers":56,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 120.123127,35.99126123 ]
+    },
+    "properties": {
+    "Name_en":"Qingdao Kyungshin Electronic Co., Ltd.",
+    "Location":"Shandong",
+    "Sector":"Automotive",
+    "Name_ch":"青岛京信电子有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.4403244,22.57147644 ]
+    },
+    "properties": {
+    "Name_en":"Guangdong Wankezi Intelligent Control Technology Co., Ltd.",
+    "Location":"Guangdong",
+    "Sector":"Home appliances",
+    "Name_ch":"广东万颗子智控科技有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.3293661,22.12681991 ]
+    },
+    "properties": {
+    "Name_en":"Guangdong Kingrun Technology Co.,Ltd.",
+    "Location":"Guangdong",
+    "Sector":"Automotive",
+    "Name_ch":"广东健润科技股份有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 114.592744,30.496956 ]
+    },
+    "properties": {
+    "Name_en":"Wuhan Zhichuang Shuangyi Technology Co., Ltd.",
+    "Location":"Hubei",
+    "Sector":"Electronics",
+    "Name_ch":"武汉市智创双翼科技有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":"March 2022"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.302783,22.731685 ]
+    },
+    "properties": {
+    "Name_en":"TCL Delonghi Home Appliances (Zhongshan)",
+    "Location":"Guangdong",
+    "Sector":"Home appliances",
+    "Name_ch":"TCL德龙家用电器(中山)有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":"Jan 2024"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.693324,22.93812 ]
+    },
+    "properties": {
+    "Name_en":"Dongguan Houjie Yuda Shoes Co., Ltd. ",
+    "Location":"Guangdong",
+    "Sector":"Footwear",
+    "Name_ch":"东莞市厚街钰达鞋业有限公司",
+    "Transfer_workers":42,
+    "Transfer_date":"September 2018"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 114.0663864,30.4497816 ]
+    },
+    "properties": {
+    "Name_en":"Wuhan Honghai Technology Co. Ltd.",
+    "Location":"Hubei",
+    "Sector":"Home appliances, Electronics",
+    "Name_ch":"武汉宏海科技股份有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.2819786,22.72273704 ]
+    },
+    "properties": {
+    "Name_en":"TCL Air Conditioner (Zhongshan) Co. Ltd.",
+    "Location":"Guangdong",
+    "Sector":"Home appliances",
+    "Name_ch":"TCL空调器(中山)有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":"Jan 2024"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 115.803685,28.740955 ]
+    },
+    "properties": {
+    "Name_en":"Nanchang Aux Intelligent Electric Co.,Ltd.",
+    "Location":"Jiangxi",
+    "Sector":"Home appliances",
+    "Name_ch":"南昌市奥克斯电气制造有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 118.608691,24.997625 ]
+    },
+    "properties": {
+    "Name_en":"Fujian Sunshine Footwear Co., Ltd.",
+    "Location":"Fujian",
+    "Sector":"Footwear",
+    "Name_ch":"福建和诚鞋业有限公司",
+    "Transfer_workers":465,
+    "Transfer_date":"2015"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 119.2762857,32.25385583 ]
+    },
+    "properties": {
+    "Name_en":"Yangzhou Eltek Electronics Co., Ltd.",
+    "Location":"Jiangsu",
+    "Sector":"Automotive, Electronics",
+    "Name_ch":"扬州依利安达电子有限公司",
+    "Transfer_workers":434,
+    "Transfer_date":"July 2021"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.7135833,22.39506056 ]
+    },
+    "properties": {
+    "Name_en":"Kaiping Eltek Electronics Co., Ltd.",
+    "Location":"Guangdong",
+    "Sector":"Automotive, Electronics",
+    "Name_ch":"开平依利安达电子有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":"May 2021"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.287746,22.779063 ]
+    },
+    "properties": {
+    "Name_en":"Hisense Rongsheng (Guangdong) Refrigerator",
+    "Location":"Guangdong",
+    "Sector":"Home appliances",
+    "Name_ch":"海信容声(广东)冰箱有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":"November 2023"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.4935932,29.83401617 ]
+    },
+    "properties": {
+    "Name_en":"Honghu Weihong Shoes Co., Ltd.",
+    "Location":"Hubei",
+    "Sector":"Footwear",
+    "Name_ch":"洪湖市威弘鞋业有限公司",
+    "Transfer_workers":221,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 111.807801,30.175939 ]
+    },
+    "properties": {
+    "Name_en":"Hubei Junli Sports Goods Co., Ltd.",
+    "Location":"Hubei",
+    "Sector":"Footwear",
+    "Name_ch":"湖北骏力体育用品有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 118.854904,25.12811596 ]
+    },
+    "properties": {
+    "Name_en":"Fujian Baizong Sports Goods Co., Ltd.",
+    "Location":"Fujian",
+    "Sector":"Footwear",
+    "Name_ch":"福建百纵体育用品有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":"September 2023"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 118.562912,24.90583 ]
+    },
+    "properties": {
+    "Name_en":"Fujian Wanjiaxin Light Industry Development Co. Ltd.",
+    "Location":"Fujian",
+    "Sector":"Footwear",
+    "Name_ch":"福建万家鑫轻工发展有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 118.562912,24.856977 ]
+    },
+    "properties": {
+    "Name_en":"Jinjiang Jinchuang Shoes Material Co., Ltd.",
+    "Location":"Fujian",
+    "Sector":"Footwear",
+    "Name_ch":"晋江市锦创鞋材有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 111.8272159,30.80370838 ]
+    },
+    "properties": {
+    "Name_en":"Hongxian Shoes Co. Ltd.",
+    "Location":"Hubei",
+    "Sector":"Footwear",
+    "Name_ch":"宏贤鞋业有限公司",
+    "Transfer_workers":50,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 118.6242159,24.81836564 ]
+    },
+    "properties": {
+    "Name_en":"361 (Fujian) Shoe Plastic Technology Co., Ltd.",
+    "Location":"Fujian",
+    "Sector":"Footwear",
+    "Name_ch":"三六一度（福建）鞋塑科技有限公司",
+    "Transfer_workers":375,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 118.6126445,24.82119884 ]
+    },
+    "properties": {
+    "Name_en":"Dalang (Fujian) Sporting Goods Co., Ltd.",
+    "Location":"Fujian",
+    "Sector":"Footwear",
+    "Name_ch":"达郎（福建）体育用品有限公司",
+    "Transfer_workers":6,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 118.608602,24.841416 ]
+    },
+    "properties": {
+    "Name_en":"Jinjiang Baoshu Shoes Plastic Co., Ltd.",
+    "Location":"Fujian",
+    "Sector":"Footwear",
+    "Name_ch":"晋江宝树鞋塑有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":"April 2021"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 118.878737,32.154242 ]
+    },
+    "properties": {
+    "Name_en":"Xingxing (Nanjing) Digital Co., Ltd.",
+    "Location":"Jiangsu",
+    "Sector":"Automotive, Electronics",
+    "Name_ch":"幸星（南京）数码有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 118.876965,32.155403 ]
+    },
+    "properties": {
+    "Name_en":"Shidalian (Nanjing) Optoelectronics Co., Ltd.",
+    "Location":"Jiangsu",
+    "Sector":"Electronics",
+    "Name_ch":"仕达利恩（南京）光电有限公司",
+    "Transfer_workers":70,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.982709,29.757522 ]
+    },
+    "properties": {
+    "Name_en":"Vitalink Technology Co. Ltd.",
+    "Location":"Hubei",
+    "Sector":"Electronics",
+    "Name_ch":"维达力科技股份有限公司",
+    "Transfer_workers":555,
+    "Transfer_date":"August 2018"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 119.434569,36.089013 ]
+    },
+    "properties": {
+    "Name_en":"Shandong Huachang Food Technology Co., Ltd.",
+    "Location":"Shandong",
+    "Sector":"Poultry",
+    "Name_ch":"山东华昌食品科技有限公司",
+    "Transfer_workers":100,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 119.4396832,32.80936716 ]
+    },
+    "properties": {
+    "Name_en":"Jiangsu Chuanyi Technology Co., Ltd.",
+    "Location":"Jiangsu",
+    "Sector":"Electronics",
+    "Name_ch":"江苏传艺科技股份有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":"January 2023"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 118.8635045,32.0169996 ]
+    },
+    "properties": {
+    "Name_en":"Nanjing LG Panda Electric Co., Ltd.",
+    "Location":"Jiangsu",
+    "Sector":"Home appliances",
+    "Name_ch":"南京乐金熊猫电器有限公司",
+    "Transfer_workers":600,
+    "Transfer_date":"2019"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 119.954953,32.493535 ]
+    },
+    "properties": {
+    "Name_en":"Taizhou LG Electronic Refrigeration Co., Ltd.",
+    "Location":"Jiangsu",
+    "Sector":"Home appliances",
+    "Name_ch":"泰州乐金电子冷机有限公司",
+    "Transfer_workers":290,
+    "Transfer_date":"November 2020"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.517997,22.391059 ]
+    },
+    "properties": {
+    "Name_en":"Zhuhai Zhidi Technology",
+    "Location":"Guangdong",
+    "Sector":"Electronics",
+    "Name_ch":"珠海市智迪科技股份有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":"January 2022"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 114.0533504,30.44009723 ]
+    },
+    "properties": {
+    "Name_en":"Wuhan Jinrui Technology Co., Ltd.",
+    "Location":"Hubei",
+    "Sector":"Automotive",
+    "Name_ch":"武汉锦瑞技术有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":"October 2023"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 114.111612,30.45667102 ]
+    },
+    "properties": {
+    "Name_en":"Midea Group Wuhan HVAC Equipment Co., Ltd.",
+    "Location":"Hubei",
+    "Sector":"Home appliances",
+    "Name_ch":"美的集团武汉暖通设备有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 114.1096882,30.46010186 ]
+    },
+    "properties": {
+    "Name_en":"Midea Group Wuhan Refrigeration Equipment Co., Ltd.",
+    "Location":"Hubei",
+    "Sector":"Home appliances",
+    "Name_ch":"美的集团武汉制冷设备有限公司",
+    "Transfer_workers":473,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.328899,30.32287 ]
+    },
+    "properties": {
+    "Name_en":"Hubei Midea Refrigerator Co., Ltd.",
+    "Location":"Hubei",
+    "Sector":"Home appliances",
+    "Name_ch":"湖北美的电冰箱有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.166246,30.908965 ]
+    },
+    "properties": {
+    "Name_en":"Great Wall Motors Co. Ltd. (Jingmen branch)",
+    "Location":"Hubei",
+    "Sector":"Automotive",
+    "Name_ch":"长城汽车股份有限公司荆门分公司",
+    "Transfer_workers":500,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 110.830775,32.603398 ]
+    },
+    "properties": {
+    "Name_en":"Hubei ZhengaoPKC Automotive Wiring Company Ltd. ",
+    "Location":"Hubei",
+    "Sector":"Automotive",
+    "Name_ch":"湖北正奥比克希汽车电气系统有限公司",
+    "Transfer_workers":114,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 114.190031,30.393833 ]
+    },
+    "properties": {
+    "Name_en":"Wuhan Xincheng Autoparts        ",
+    "Location":"Hubei",
+    "Sector":"Automotive",
+    "Name_ch":"武汉新程汽车零部件有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 114.0771799,30.34470368 ]
+    },
+    "properties": {
+    "Name_en":"Jiangsu Xincheng (Wuhan) Auto Parts Co. Ltd.",
+    "Location":"Hubei",
+    "Sector":"Automotive",
+    "Name_ch":"江苏新程(武汉)汽车零配件有限公司",
+    "Transfer_workers":null,
+    "Transfer_date":""
+    }
+  }
+]
+}
