@@ -15,6 +15,7 @@ let ob_section_percent = null
 let ob_scroll_y = null
 let ob_scroll_percent = null
 
+// Check if the section is visible and turn on/off the observer
 const setActiveSection = (source) => {
   if (active_section !== source) {
     if (active_section) {
