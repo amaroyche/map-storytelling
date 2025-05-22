@@ -4,6 +4,7 @@ import { MAP } from '@src/MapManger.js'
 import { along } from '@turf/turf'
 import { lerp } from '@src/helpers/MapHelper.js'
 import { SOURCE_BY_ID } from '@src/DataManager.js'
+import { LngLatBounds } from 'mapbox-gl'
 
 export const DEBUG = import.meta.env.DEV && false
 export const ANIMATION_FRAME_RATE = 30
@@ -146,8 +147,8 @@ export const CreateLayers = () => {
           type: 'line',
           source: SOURCE_ID.CHINA_BOUNDS,
           paint: {
-            'line-color': '#8d000c',
-            'line-width': 3,
+            'line-color': '#ffcb1b',
+            'line-width': 1.5,
             'line-opacity': 0,
           },
         })
@@ -156,8 +157,8 @@ export const CreateLayers = () => {
           type: 'line',
           source: SOURCE_ID.CHINA_PROVINCES,
           paint: {
-            'line-color': '#8d000c',
-            'line-width': 2,
+            'line-color': '#ffcb1b',
+            'line-width': 1,
             'line-opacity': 0,
           },
         })
@@ -166,8 +167,8 @@ export const CreateLayers = () => {
           type: 'fill',
           source: SOURCE_ID.CHINA_PROVINCES,
           paint: {
-            'fill-color': '#8d000c',
-            'fill-opacity': 0,
+            'fill-color': '#ffcb1b',
+            'fill-opacity': 0.2,
           },
         })
         .addLayer({
@@ -177,7 +178,7 @@ export const CreateLayers = () => {
           paint: {
             'circle-radius': 6,
             'circle-opacity': 0,
-            'circle-color': '#B42222',
+            'circle-color': '#ff0042',
           },
         })
         .addLayer({
@@ -295,7 +296,7 @@ export const SECTIONS = [
     id: '01_section',
     onObserveStart: () => {
       MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-opacity', 1)
-      MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-width', 6)
+      MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-width', 1)
 
       MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_FILL, 'fill-opacity', [
         'match',
@@ -336,7 +337,7 @@ export const SECTIONS = [
     id: '02_section',
     onObserveStart: () => {
       MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-opacity', 0.5)
-      MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-width', 3)
+      MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-width', 1)
 
       MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-opacity', 0)
       MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-stroke-opacity', 0)
@@ -370,7 +371,7 @@ export const SECTIONS = [
         pitch: 20,
         center: source.center,
         zoom: source.zoom,
-        speed: 0.5,
+        speed: 0.25,
       })
     },
     onResize: () => {
@@ -380,7 +381,7 @@ export const SECTIONS = [
         pitch: 20,
         center: source.center,
         zoom: source.zoom,
-        speed: 0.5,
+        speed: 0.25,
       })
     },
     onObserveEnd: () => {
@@ -418,8 +419,8 @@ export const SECTIONS = [
         pitch: 25,
         bearing: 0,
         center: featureStart.geometry.coordinates,
-        zoom: 4.9,
-        // speed: 0.5,
+        zoom: 5,
+        speed: 0.25,
       })
     },
     onResize: () => {
@@ -428,8 +429,8 @@ export const SECTIONS = [
         pitch: 25,
         bearing: 0,
         center: source.center,
-        zoom: 4.9,
-        // speed: 0.5,
+        zoom: 5,
+        speed: 0.25,
       })
     },
   }),
@@ -444,7 +445,7 @@ export const SECTIONS = [
       MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_FILL, 'fill-opacity', 0)
       MAP.setPaintProperty(LAYER_ID.CHINA_FACTORIES_POINTS, 'circle-opacity', 0)
 
-      MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 1)
+      MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 0)
       MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-opacity', [
         'match',
         ['get', 'id'],
@@ -476,7 +477,7 @@ export const SECTIONS = [
       MAP.setPitch(25)
       MAP.easeTo({
         zoom: section.startZoom,
-        speed: 0.5,
+        speed: 1,
       })
     },
     onDraw(section) {
@@ -514,7 +515,7 @@ export const SECTIONS = [
           [
             'step',
             ['line-progress'],
-            '#bb9a1d',
+            '#ff0042',
             animationPhase,
             'rgba(0, 0, 0, 0)',
           ],
@@ -528,7 +529,7 @@ export const SECTIONS = [
           [
             'step',
             ['line-progress'],
-            '#bb9a1d',
+            '#ff0042',
             section.currentPercent > 50 ? 1 : 0,
             'rgba(0, 0, 0, 0)',
           ],
@@ -565,7 +566,7 @@ export const SECTIONS = [
           [
             'step',
             ['line-progress'],
-            '#bb9a1d',
+            '#ff0042',
             1,
             'rgba(0, 0, 0, 0)',
           ],
