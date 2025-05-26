@@ -25,7 +25,7 @@ const LAYER_ID = {
   CHINA_BOUNDS: 'layer-china-bounds',
   CHINA_PROVINCES_BOUNDS: 'layer-china-provinces-bounds',
   CHINA_PROVINCES_FILL: 'layer-china-provinces-fill',
-  CHINA_XINJIANG_POINTS: 'layer-china-xinjiang-points',
+  // CHINA_XINJIANG_POINTS: 'layer-china-xinjiang-points',
   CHINA_FACTORIES_POINTS: 'china-factories-points',
   CHINA_ROUTE: 'layer-china-route',
   CHINA_ROUTE_LINE: 'layer-china-route-line',
@@ -36,7 +36,7 @@ const LAYER_ID = {
 const SOURCE_ID = {
   CHINA_BOUNDS: 'china-bounds',
   CHINA_PROVINCES: 'china-provinces',
-  CHINA_XINJIANG_POINTS: 'china-xinjiang-points',
+  // CHINA_XINJIANG_POINTS: 'china-xinjiang-points',
   CHINA_FACTORIES_POINTS: 'china-factories-points',
   CHINA_ROUTE: 'china-route',
   CHINA_BUILDINGS: 'china-buildings',
@@ -77,18 +77,18 @@ export const DATA_SOURCES = [
       source.zoom -= 1 // manual offset
     },
   }),
-  new Source({
-    id: SOURCE_ID.CHINA_XINJIANG_POINTS,
-    type: 'json',
-    url: '/china-xinjiang-points.geojson',
-    onLoad: (source) => {
-      source.addSourceToMap()
-      source.measureDataBounds()
-    },
-    onResize: (source) => {
-      source.measureDataBounds()
-    },
-  }),
+  // new Source({
+  //   id: SOURCE_ID.CHINA_XINJIANG_POINTS,
+  //   type: 'json',
+  //   url: '/china-xinjiang-points.geojson',
+  //   onLoad: (source) => {
+  //     source.addSourceToMap()
+  //     source.measureDataBounds()
+  //   },
+  //   onResize: (source) => {
+  //     source.measureDataBounds()
+  //   },
+  // }),
   new Source({
     id: SOURCE_ID.CHINA_ROUTE,
     type: 'json',
@@ -171,16 +171,16 @@ export const CreateLayers = () => {
             'fill-opacity': 0.2,
           },
         })
-        .addLayer({
-          id: LAYER_ID.CHINA_XINJIANG_POINTS,
-          type: 'circle',
-          source: SOURCE_ID.CHINA_XINJIANG_POINTS,
-          paint: {
-            'circle-radius': 6,
-            'circle-opacity': 0,
-            'circle-color': '#ff0042',
-          },
-        })
+        // .addLayer({
+        //   id: LAYER_ID.CHINA_XINJIANG_POINTS,
+        //   type: 'circle',
+        //   source: SOURCE_ID.CHINA_XINJIANG_POINTS,
+        //   paint: {
+        //     'circle-radius': 6,
+        //     'circle-opacity': 0,
+        //     'circle-color': '#ff0042',
+        //   },
+        // })
         .addLayer({
           id: LAYER_ID.CHINA_ROUTE_LINE,
           type: 'line',
@@ -196,6 +196,7 @@ export const CreateLayers = () => {
           },
           'filter': ['==', '$type', 'LineString'],
         })
+        // Here are the circles for start and end points of the route.
         .addLayer({
           id: LAYER_ID.CHINA_ROUTE,
           type: 'circle',
@@ -206,7 +207,7 @@ export const CreateLayers = () => {
             'circle-stroke-color': '#ffffff',
             'circle-stroke-width': 2,
             'circle-stroke-opacity': 0,
-            'circle-color': '#310006',
+            'circle-color': '#ff001f',
           },
           'filter': ['==', '$type', 'Point'],
         })
@@ -271,7 +272,7 @@ export const SECTIONS = [
       MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_FILL, 'fill-opacity', 0)
       MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-opacity', 0)
 
-      MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 0)
+      // MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 0)
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
 
@@ -310,7 +311,7 @@ export const SECTIONS = [
       MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-stroke-opacity', 0)
 
       MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-opacity', 0)
-      MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 0)
+      // MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 0)
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
       MAP.easeTo({
@@ -364,7 +365,7 @@ export const SECTIONS = [
         /* others */ 0,
       ])
 
-      MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 0)
+      // MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 0)
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_PROVINCES)
       MAP.easeTo({
@@ -396,8 +397,8 @@ export const SECTIONS = [
 
       MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_FILL, 'fill-opacity', 0)
 
-      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-opacity', 0)
-      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-stroke-opacity', 0)
+      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-opacity', 1)
+      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-stroke-opacity', 1)
 
       MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE_LINE, 'line-opacity', 0)
 
@@ -410,7 +411,7 @@ export const SECTIONS = [
         /* others */ 0,
       ])
 
-      MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 1)
+      // MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 1)
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_ROUTE)
       const featureStart = source.data.features.find(f => f.id === 'start')
@@ -445,7 +446,7 @@ export const SECTIONS = [
       MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_FILL, 'fill-opacity', 0)
       MAP.setPaintProperty(LAYER_ID.CHINA_FACTORIES_POINTS, 'circle-opacity', 0)
 
-      MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 0)
+      // MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 0)
       MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-opacity', [
         'match',
         ['get', 'id'],
@@ -556,7 +557,7 @@ export const SECTIONS = [
         /* others */ 0,
       ])
 
-      MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 1)
+      // MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 1)
       MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-opacity', 1)
       MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-stroke-opacity', 1)
 
