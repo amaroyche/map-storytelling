@@ -29,7 +29,7 @@
 Service Worker has been added temporary for caching mapbox tiles. (remove in production)
 
 
-# Organisation of files and map setup
+# Organisation of files and map setup a
 
 Put all your geojson files in `public` folder. All map setup is done with `src/MapConfig.js`
 
