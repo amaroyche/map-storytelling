@@ -80,11 +80,20 @@ export const ObserverSetup = () => {
     if (DEBUG) console.info(SECTIONS)
 
     SECTIONS.forEach(section => {
+      // find optional progress elements
       const progress = section.element.querySelector('progress')
       if (progress) {
         if (DEBUG) console.info(`${section.id} contains progress element`)
         section.progressElement = progress
       }
+
+      // find optional iframe
+      const iframe = section.element.querySelector('iframe')
+      if (iframe) {
+        if (DEBUG) console.info(`${section.id} contains iframe element`)
+        section.iframeElement = iframe
+      }
+      // do init measure
       section.measure()
     })
 

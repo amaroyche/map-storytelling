@@ -42,6 +42,8 @@ const SOURCE_ID = {
   CHINA_BUILDINGS: 'china-buildings',
 }
 
+const section3videoURL = 'https://player.vimeo.com/video/1086448399?h=dc6d2b2fa3&background=1&dnt=1&app_id=58479'
+
 /**
  *
  * @type {Source[]}
@@ -168,7 +170,7 @@ export const CreateLayers = () => {
           source: SOURCE_ID.CHINA_PROVINCES,
           paint: {
             'fill-color': '#ffcb1b',
-            'fill-opacity': 0.2,
+            'fill-opacity': 0,
           },
         })
         // .addLayer({
@@ -194,7 +196,7 @@ export const CreateLayers = () => {
             'line-cap': 'round',
             'line-join': 'round',
           },
-          'filter': ['==', '$type', 'LineString'],
+          'filter': ['==', ['get', 'visible'], 1],
         })
         // Here are the circles for start and end points of the route.
         .addLayer({
@@ -238,7 +240,7 @@ export const CreateLayers = () => {
           paint: {
             'fill-color': 'rgba(89,21,21,0.55)',
             'fill-opacity': 1,
-          }
+          },
         })
         .addLayer({
           id: LAYER_ID.CHINA_BUILDINGS_FILL + 'extrude',
@@ -280,6 +282,7 @@ export const SECTIONS = [
         center: source.center,
         pitch: 10,
         zoom: source.zoom * 0.9,
+        duration: 2000
       })
     },
     onResize: () => {
@@ -290,6 +293,7 @@ export const SECTIONS = [
         pitch: 10,
         center: source.center,
         zoom: source.zoom * 0.9,
+        duration: 2000
       })
     },
   }),
@@ -318,8 +322,9 @@ export const SECTIONS = [
         pitch: 20,
         center: source.center,
         zoom: source.zoom,
-        speed: 0.5,
+        duration: 2000
       })
+
     },
     onResize: () => {
 
@@ -327,7 +332,7 @@ export const SECTIONS = [
       MAP.easeTo({
         center: source.center,
         zoom: source.zoom,
-        speed: 0.5,
+        duration: 2000
       })
     },
     onObserveEnd: () => {
@@ -372,7 +377,7 @@ export const SECTIONS = [
         pitch: 20,
         center: source.center,
         zoom: source.zoom,
-        speed: 0.25,
+        duration: 2000
       })
     },
     onResize: () => {
@@ -382,7 +387,7 @@ export const SECTIONS = [
         pitch: 20,
         center: source.center,
         zoom: source.zoom,
-        speed: 0.25,
+        duration: 2000
       })
     },
     onObserveEnd: () => {
@@ -391,7 +396,27 @@ export const SECTIONS = [
   }),
   new Section({
     id: '03_section',
-    onObserveStart: () => {
+    onMapLoaded: (section) => {
+      // set the iframe src on map load (with autoplay off)
+      section.iframeElement.setAttribute('src', section3videoURL)
+      // since vimeo.js is added in index.html lets create a player instance provided by them
+      section.player = new Vimeo.Player(section.iframeElement)
+      section.playerLoaded = false
+      section.player.on('loaded', () => {
+        section.playerLoaded = true
+        // set it to first second to get image
+        section.player.setCurrentTime(1)
+
+        if (section.entered) {
+          // we are on this section during map load event, play the video
+          section.player.play()
+        } else {
+          // and let's pause the video on load
+          section.player.pause()
+        }
+      })
+    },
+    onObserveStart: (section) => {
       MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-opacity', 0.5)
       MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-width', 3)
 
@@ -421,8 +446,12 @@ export const SECTIONS = [
         bearing: 0,
         center: featureStart.geometry.coordinates,
         zoom: 5,
-        speed: 0.25,
+        duration: 2000
       })
+
+      if (section.playerLoaded) {
+        section.player.play()
+      }
     },
     onResize: () => {
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_PROVINCES)
@@ -431,8 +460,12 @@ export const SECTIONS = [
         bearing: 0,
         center: source.center,
         zoom: 5,
-        speed: 0.25,
+        duration: 2000
       })
+    },
+    onObserveEnd: (section) => {
+      // set player to pause again
+      section.player.pause()
     },
   }),
   new Section({
@@ -462,40 +495,47 @@ export const SECTIONS = [
       MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE_LINE, 'line-opacity', 1)
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_ROUTE)
+      const source2 = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
       const featureRoute = source.data.features.find(f => f.id === 'route')
+      const feature_start_to_center_Route = source.data.features.find(f => f.id === 'start_to_center')
 
       const fromStart = section.percent < 50
 
       section.source = source
       section.sourceroute = featureRoute
+      section.cameraroute = feature_start_to_center_Route
       section.currentPercent = fromStart ? 0 : 100
 
       section.currentLngLat = MAP.getCenter()
       section.currentZoom = MAP.getZoom()
       section.startZoom = 5
-      section.endZoom = 6
+      section.endZoom = source2.zoom
 
-      MAP.setPitch(25)
+      // MAP.setPitch(25)
       MAP.easeTo({
+        pitch: 25,
         zoom: section.startZoom,
-        speed: 1,
       })
     },
     onDraw(section) {
       const percent = lerp(section.currentPercent, section.percent, 0.1)
 
-
       section.currentPercent = percent
       const animationPhase = percent / 100
 
       // calculate the distance along the path based on the animationPhase
-      const alongPath = along(section.sourceroute, (section.sourceroute.distance / 1000) * animationPhase)
+      // const alongPath = along(section.sourceroute, (section.sourceroute.distance / 1000) * animationPhase)
+      //     .geometry
+      //     .coordinates
+
+      // calculate the distance from start to the center of china based on changes
+      const alongPathCamera = along(section.cameraroute, (section.cameraroute.distance / 1000) * animationPhase)
           .geometry
           .coordinates
 
       const lngLat = {
-        lng: alongPath[0],
-        lat: alongPath[1],
+        lng: alongPathCamera[0],
+        lat: alongPathCamera[1],
       }
       // console.log(lngLat)
 
@@ -505,10 +545,11 @@ export const SECTIONS = [
       }
       section.currentLngLat = lngLat
 
-      section.currentZoom = section.startZoom + (section.endZoom - section.startZoom) * animationPhase
+      const z = section.startZoom + (section.endZoom - section.startZoom) * animationPhase
 
+      section.currentZoom = lerp(z, MAP.getZoom(), 0.8)
 
-      MAP.easeTo({ center: lngLat, zoom: section.currentZoom })
+      MAP.easeTo({ center: lngLat, zoom: section.currentZoom})
 
       MAP.setPaintProperty(
           LAYER_ID.CHINA_ROUTE_LINE,
@@ -521,7 +562,6 @@ export const SECTIONS = [
             'rgba(0, 0, 0, 0)',
           ],
       )
-
     },
     onObserveEnd: (section) => {
       MAP.setPaintProperty(
@@ -540,7 +580,6 @@ export const SECTIONS = [
   new Section({
     id: '05_section',
     onObserveStart: () => {
-
       MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-opacity', 0.5)
       MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-width', 3)
 
@@ -567,62 +606,141 @@ export const SECTIONS = [
           [
             'step',
             ['line-progress'],
-            '#ff0042',
+            'rgba(0, 0, 0, 0)',
             1,
             'rgba(0, 0, 0, 0)',
           ],
       )
 
-
-      const source = SOURCE_BY_ID(SOURCE_ID.CHINA_ROUTE)
-      const featureEnd = source.data.features.find(f => f.id === 'end')
+      const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
       MAP.easeTo({
         pitch: 25,
-        center: featureEnd.geometry.coordinates,
-        zoom: 6,
-        bearing:0,
-        duration: 1500,
+        center: source.center,
+        zoom: source.zoom,
+        duration: 2000
       })
     },
   }),
   new Section({
     id: '06_section',
-    onObserveStart: (section) => {
+    onObserveStart: () => {
+      MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-opacity', 0.5)
+      MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-width', 3)
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_FILL, 'fill-opacity', 0)
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_FACTORIES_POINTS, 'circle-opacity', 1)
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-opacity', 1)
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-width', [
+        'match',
+        ['get', 'id'],
+        '65',
+        4,
+        /* others */ 0,
+      ])
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-opacity', 1)
+      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-stroke-opacity', 1)
+
+      MAP.setPaintProperty(
+          LAYER_ID.CHINA_ROUTE_LINE,
+          'line-gradient',
+          [
+            'step',
+            ['line-progress'],
+            'rgba(0, 0, 0, 0)',
+            1,
+            'rgba(0, 0, 0, 0)',
+          ],
+      )
+
+      const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
+
       MAP.easeTo({
-        pitch: 20,
-        center: [119.148800, 36.701626],
-        zoom: 16,
-        curve: 1,
-        bearing: 0,
-        duration: 1000,
+        pitch: 25,
+        center: source.center,
+        zoom: source.zoom,
+        duration: 2000
       })
-      section.rotation = 0
     },
-    onDraw(section) {
-      if (MAP.getZoom() === 16) {
-        if (!section.rotation) {
-          section.rotation = 0
-        }
-        MAP.rotateTo((section.rotation * 0.2) % 360, { duration: 0 });
-        section.rotation++
-      }
-    },
-    onObserveEnd: () => {
-      MAP.easeTo({
-        bearing: 0,
-        duration: 500,
-      })
-    }
   }),
   new Section({
     id: '07_section',
     onObserveStart: () => {
+      MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-opacity', 0.5)
+      MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-width', 1)
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-opacity', 0)
+      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-stroke-opacity', 0)
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-opacity', [
+        'match',
+        ['get', 'id'],
+        '65',
+        1,
+        /* others */ 0,
+      ])
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-width', [
+        'match',
+        ['get', 'id'],
+        '65',
+        4,
+        /* others */ 1,
+      ])
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_FILL, 'fill-opacity', [
+        'match',
+        ['get', 'id'],
+        '65',
+        0.2,
+        /* others */ 0,
+      ])
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_FACTORIES_POINTS, 'circle-opacity', 0)
+
+      const source = SOURCE_BY_ID(SOURCE_ID.CHINA_PROVINCES)
       MAP.easeTo({
         pitch: 20,
-        zoom: 17,
-        center: [119.148800, 36.701626],
-        duration: 1000,
+        center: source.center,
+        zoom: source.zoom,
+        // speed: 1,
+        duration: 2000
+      })
+    },
+  }),
+  new Section({
+    id: '08_section',
+    onObserveStart:() => {
+      MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-opacity', 0.5)
+      MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-width', 3)
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_FILL, 'fill-opacity', 0)
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-opacity', 0)
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_FILL, 'fill-opacity', [
+        'match',
+        ['get', 'id'],
+        '65',
+        0.2,
+        /* others */ 0,
+      ])
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-opacity', [
+        'match',
+        ['get', 'id'],
+        '65',
+        1,
+        /* others */ 0,
+      ])
+
+      const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
+
+      MAP.easeTo({
+        center: source.center,
+        pitch: 10,
+        zoom: source.zoom * 0.9,
+        duration: 2000
       })
     }
-  }),
+  })
 ]

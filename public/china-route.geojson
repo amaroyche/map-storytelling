@@ -25,8 +25,29 @@
     },
     {
       "type": "Feature",
+      "id": "start_to_center",
+      "distance": "2489307.9",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            76.168158,
+            39.715972
+          ],
+          [
+            104.194260,
+            35.861310
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "route",
       "distance": "4169539.25",
+      "properties": {
+        "visible": 1
+      },
       "geometry": {
         "type": "LineString",
         "coordinates": [
