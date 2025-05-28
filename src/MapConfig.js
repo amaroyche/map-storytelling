@@ -569,8 +569,8 @@ export const SECTIONS = [
       ])
 
       // MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 1)
-      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-opacity', 0)
-      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-stroke-opacity', 0)
+      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-opacity', 1)
+      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-stroke-opacity', 1)
 
       MAP.setPaintProperty(
           LAYER_ID.CHINA_ROUTE_LINE,
@@ -584,17 +584,61 @@ export const SECTIONS = [
           ],
       )
 
-      const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
+      //const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
       MAP.easeTo({
         pitch: 25,
-        center: source.center,
-        zoom: source.zoom,
+        center: [119.2762857, 32.25385583],
+        zoom: 7,
         duration: 2000
       })
     },
   }),
   new Section({
     id: '06_section',
+    onObserveStart: () => {
+      MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-opacity', 0.5)
+      MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-width', 3)
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_FILL, 'fill-opacity', 0)
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_FACTORIES_POINTS, 'circle-opacity', 1)
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-opacity', 1)
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-width', [
+        'match',
+        ['get', 'id'],
+        '65',
+        4,
+        /* others */ 0,
+      ])
+
+      // MAP.setPaintProperty(LAYER_ID.CHINA_XINJIANG_POINTS, 'circle-opacity', 1)
+      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-opacity', 1)
+      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-stroke-opacity', 1)
+
+      MAP.setPaintProperty(
+          LAYER_ID.CHINA_ROUTE_LINE,
+          'line-gradient',
+          [
+            'step',
+            ['line-progress'],
+            'rgba(0, 0, 0, 0)',
+            1,
+            'rgba(0, 0, 0, 0)',
+          ],
+      )
+
+      //const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
+      MAP.easeTo({
+        pitch: 25,
+        center: [119.2762857, 32.25385583],
+        zoom: 7,
+        duration: 2000
+      })
+    },
+  }),
+  new Section({
+    id: '06b_section',
     onObserveStart: () => {
       MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-opacity', 0.5)
       MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-width', 3)
@@ -627,7 +671,7 @@ export const SECTIONS = [
           ],
       )
 
-      const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
+      const source = SOURCE_BY_ID(SOURCE_ID.CHINA_FACTORIES_POINTS)
 
       MAP.easeTo({
         pitch: 25,
@@ -673,7 +717,7 @@ export const SECTIONS = [
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_FACTORIES_POINTS)
       MAP.easeTo({
-        pitch: 20,
+        pitch: 25,
         center: source.center,
         zoom: source.zoom,
         // speed: 1,
@@ -742,6 +786,50 @@ export const SECTIONS = [
       MAP.setPaintProperty(LAYER_ID.CHINA_FACTORIES_POINTS, 'circle-radius', 6)
 
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_FACTORIES_POINTS)
+      MAP.easeTo({
+        pitch: 20,
+        center: source.center,
+        zoom: source.zoom,
+        // speed: 1,
+        duration: 2000
+      })
+    },
+  }),
+  new Section({
+    id: '12_section',
+    onObserveStart: () => {
+      MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-opacity', 0.5)
+      MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-width', 1)
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-opacity', 0)
+      MAP.setPaintProperty(LAYER_ID.CHINA_ROUTE, 'circle-stroke-opacity', 0)
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-opacity', [
+        'match',
+        ['get', 'id'],
+        '65',
+        1,
+        /* others */ 0,
+      ])
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_BOUNDS, 'line-width', [
+        'match',
+        ['get', 'id'],
+        '65',
+        4,
+        /* others */ 1,
+      ])
+      MAP.setPaintProperty(LAYER_ID.CHINA_PROVINCES_FILL, 'fill-opacity', [
+        'match',
+        ['get', 'id'],
+        '65',
+        0.2,
+        /* others */ 0,
+      ])
+
+      MAP.setPaintProperty(LAYER_ID.CHINA_FACTORIES_POINTS, 'circle-opacity', 1)
+      MAP.setPaintProperty(LAYER_ID.CHINA_FACTORIES_POINTS, 'circle-radius', 6)
+
+      const source = SOURCE_BY_ID(SOURCE_ID.CHINA_BOUNDS)
       MAP.easeTo({
         pitch: 20,
         center: source.center,
