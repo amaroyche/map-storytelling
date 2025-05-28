@@ -21,9 +21,18 @@ const setActiveSection = (source) => {
     if (active_section) {
       active_section.observeEnd()
     }
+
     // set new source, could be null
     previous_section = active_section
     active_section = source
+
+    // let's stop all videos in all "other" sections once we change section
+    SECTIONS.forEach(section => {
+      if (section.id !== active_section.id) {
+        section.stopVideos()
+      }
+    })
+
     if (active_section) {
       active_section.observeStart()
     }
@@ -87,11 +96,11 @@ export const ObserverSetup = () => {
         section.progressElement = progress
       }
 
-      // find optional iframe
-      const iframe = section.element.querySelector('iframe')
-      if (iframe) {
-        if (DEBUG) console.info(`${section.id} contains iframe element`)
-        section.iframeElement = iframe
+      // find optional iframes within section
+      const iframes = section.element.querySelectorAll('iframe')
+      if (iframes.length) {
+        if (DEBUG) console.info(`${section.id} contains at least one iframe element`)
+        section.observeIframes(iframes)
       }
       // do init measure
       section.measure()

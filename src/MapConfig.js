@@ -9,11 +9,11 @@ import { LngLatBounds } from 'mapbox-gl'
 export const DEBUG = import.meta.env.DEV && false
 export const ANIMATION_FRAME_RATE = 30
 
-export const TOKEN = 'pk.eyJ1IjoidmlsbGV3aWxzb24iLCJhIjoiY21hMDhobDY0MHR2dzJrczg1Mjk4NmQyaCJ9.1ivMnqW2XTSfy2nf1utCBQ'
+export const TOKEN = 'pk.eyJ1IjoiZnJhbmtpZWdvb2R3YXkiLCJhIjoiY21iN3FydjgwMGRsczJqczFrN254YmltbiJ9.9Z-beldRY7F8mSvieZPztw'
 
 export const MAP_OPTIONS = {
   container: 'map',
-  style: 'mapbox://styles/villewilson/cm8xrkm1x000z01qr35gb2fer',
+  style: 'mapbox://styles/frankiegoodway/cmb7qp62s00rr01pa5ymv49y9',
   center: [90.18741, 36.13885],
   performanceMetricsCollection: false,
   respectPrefersReducedMotion: false,
@@ -29,8 +29,8 @@ const LAYER_ID = {
   CHINA_FACTORIES_POINTS: 'china-factories-points',
   CHINA_ROUTE: 'layer-china-route',
   CHINA_ROUTE_LINE: 'layer-china-route-line',
-  CHINA_BUILDINGS_BOUNDS: 'layer-china-buildings-bounds',
-  CHINA_BUILDINGS_FILL: 'layer-china-buildings-fill',
+  // CHINA_BUILDINGS_BOUNDS: 'layer-china-buildings-bounds',
+  // CHINA_BUILDINGS_FILL: 'layer-china-buildings-fill',
 }
 
 const SOURCE_ID = {
@@ -39,10 +39,10 @@ const SOURCE_ID = {
   // CHINA_XINJIANG_POINTS: 'china-xinjiang-points',
   CHINA_FACTORIES_POINTS: 'china-factories-points',
   CHINA_ROUTE: 'china-route',
-  CHINA_BUILDINGS: 'china-buildings',
+  // CHINA_BUILDINGS: 'china-buildings',
 }
 
-const section3videoURL = 'https://player.vimeo.com/video/1086448399?h=dc6d2b2fa3&background=1&dnt=1&app_id=58479'
+export const videoURLAppend = '&background=1&dnt=1&app_id=map-story-001'
 
 /**
  *
@@ -117,18 +117,18 @@ export const DATA_SOURCES = [
       source.measureDataBounds()
     },
   }),
-  new Source({
-    id: SOURCE_ID.CHINA_BUILDINGS,
-    type: 'json',
-    url: '/china-buildings-placeholder.geojson',
-    onLoad: (source) => {
-      source.addSourceToMap()
-      source.measureDataBounds()
-    },
-    onResize: (source) => {
-      source.measureDataBounds()
-    },
-  }),
+  // new Source({
+  //   id: SOURCE_ID.CHINA_BUILDINGS,
+  //   type: 'json',
+  //   url: '/china-buildings-placeholder.geojson',
+  //   onLoad: (source) => {
+  //     source.addSourceToMap()
+  //     source.measureDataBounds()
+  //   },
+  //   onResize: (source) => {
+  //     source.measureDataBounds()
+  //   },
+  // }),
   // we could load txt file for some text contend
   // new Source({
   //   id: 'test-txt',
@@ -223,36 +223,36 @@ export const CreateLayers = () => {
             'circle-color': '#B42222',
           },
         })
-        .addLayer({
-          id: LAYER_ID.CHINA_BUILDINGS_BOUNDS,
-          type: 'line',
-          source: SOURCE_ID.CHINA_BUILDINGS,
-          paint: {
-            'line-color': '#fffff8',
-            'line-width': 3,
-            'line-opacity': 1,
-          },
-        })
-        .addLayer({
-          id: LAYER_ID.CHINA_BUILDINGS_FILL,
-          type: 'fill',
-          source: SOURCE_ID.CHINA_BUILDINGS,
-          paint: {
-            'fill-color': 'rgba(89,21,21,0.55)',
-            'fill-opacity': 1,
-          },
-        })
-        .addLayer({
-          id: LAYER_ID.CHINA_BUILDINGS_FILL + 'extrude',
-          source: SOURCE_ID.CHINA_BUILDINGS,
-          type: 'fill-extrusion',
-          paint: {
-            'fill-extrusion-color': 'rgba(127,153,169,0.55)',
-            'fill-extrusion-height': 30,
-            'fill-extrusion-base': 0,
-            'fill-extrusion-opacity': 0.85,
-          },
-        })
+        // .addLayer({
+        //   id: LAYER_ID.CHINA_BUILDINGS_BOUNDS,
+        //   type: 'line',
+        //   source: SOURCE_ID.CHINA_BUILDINGS,
+        //   paint: {
+        //     'line-color': '#fffff8',
+        //     'line-width': 3,
+        //     'line-opacity': 1,
+        //   },
+        // })
+        // .addLayer({
+        //   id: LAYER_ID.CHINA_BUILDINGS_FILL,
+        //   type: 'fill',
+        //   source: SOURCE_ID.CHINA_BUILDINGS,
+        //   paint: {
+        //     'fill-color': 'rgba(89,21,21,0.55)',
+        //     'fill-opacity': 1,
+        //   },
+        // })
+        // .addLayer({
+        //   id: LAYER_ID.CHINA_BUILDINGS_FILL + 'extrude',
+        //   source: SOURCE_ID.CHINA_BUILDINGS,
+        //   type: 'fill-extrusion',
+        //   paint: {
+        //     'fill-extrusion-color': 'rgba(127,153,169,0.55)',
+        //     'fill-extrusion-height': 30,
+        //     'fill-extrusion-base': 0,
+        //     'fill-extrusion-opacity': 0.85,
+        //   },
+        // })
 
 
     resolve()
@@ -396,26 +396,6 @@ export const SECTIONS = [
   }),
   new Section({
     id: '03_section',
-    onMapLoaded: (section) => {
-      // set the iframe src on map load (with autoplay off)
-      section.iframeElement.setAttribute('src', section3videoURL)
-      // since vimeo.js is added in index.html lets create a player instance provided by them
-      section.player = new Vimeo.Player(section.iframeElement)
-      section.playerLoaded = false
-      section.player.on('loaded', () => {
-        section.playerLoaded = true
-        // set it to first second to get image
-        section.player.setCurrentTime(1)
-
-        if (section.entered) {
-          // we are on this section during map load event, play the video
-          section.player.play()
-        } else {
-          // and let's pause the video on load
-          section.player.pause()
-        }
-      })
-    },
     onObserveStart: (section) => {
       MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-opacity', 0.5)
       MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-width', 3)
@@ -448,10 +428,6 @@ export const SECTIONS = [
         zoom: 5,
         duration: 2000
       })
-
-      if (section.playerLoaded) {
-        section.player.play()
-      }
     },
     onResize: () => {
       const source = SOURCE_BY_ID(SOURCE_ID.CHINA_PROVINCES)
@@ -462,10 +438,6 @@ export const SECTIONS = [
         zoom: 5,
         duration: 2000
       })
-    },
-    onObserveEnd: (section) => {
-      // set player to pause again
-      section.player.pause()
     },
   }),
   new Section({
