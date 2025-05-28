@@ -26,7 +26,6 @@ class SectionPlayer {
   }
 
   play() {
-    console.log('Iframe video', this.id, 'play')
     this.playTimeout = setTimeout(() => {
       if (DEBUG) console.log('Iframe video', this.id, 'play')
       this.player.play()
