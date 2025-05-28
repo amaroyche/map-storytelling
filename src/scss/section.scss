@@ -199,3 +199,41 @@ section {
   height: 100%;
   object-fit: cover;
 }
+
+p {
+  line-height: 1.5;
+}
+
+.image-credits {
+  font-size: 0.8rem;
+  text-align: right;
+  margin-top: none;
+  opacity: 0.6;
+}
+
+.translation {
+  font-size: 0.9rem;
+  text-align: left;
+  opacity: 0.8;
+  display: block;
+  border: 1px solid orange;
+  padding: 1em;
+}
+
+.credits-wrapper {
+  margin-top: 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: left;
+  gap: 2em
+}
+
+.credits-roles p {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.credits-names p{
+  line-height: 1.2;
+}
