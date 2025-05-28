@@ -681,7 +681,7 @@ export const SECTIONS = [
     },
   }),
   new Section({
-    id: '08_section',
+    id: '13_section',
     onObserveStart:() => {
       MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-opacity', 0.5)
       MAP.setPaintProperty(LAYER_ID.CHINA_BOUNDS, 'line-width', 3)
