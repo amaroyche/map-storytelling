@@ -184,6 +184,16 @@ export const CreateLayers = () => {
         //   },
         // })
         .addLayer({
+          id: LAYER_ID.CHINA_FACTORIES_POINTS,
+          type: 'circle',
+          source: SOURCE_ID.CHINA_FACTORIES_POINTS,
+          paint: {
+            'circle-radius': 6,
+            'circle-opacity': 0,
+            'circle-color': '#B42222',
+          },
+        })
+        .addLayer({
           id: LAYER_ID.CHINA_ROUTE_LINE,
           type: 'line',
           source: SOURCE_ID.CHINA_ROUTE,
@@ -212,16 +222,6 @@ export const CreateLayers = () => {
             'circle-color': '#ff001f',
           },
           'filter': ['==', '$type', 'Point'],
-        })
-        .addLayer({
-          id: LAYER_ID.CHINA_FACTORIES_POINTS,
-          type: 'circle',
-          source: SOURCE_ID.CHINA_FACTORIES_POINTS,
-          paint: {
-            'circle-radius': 6,
-            'circle-opacity': 0,
-            'circle-color': '#B42222',
-          },
         })
         // .addLayer({
         //   id: LAYER_ID.CHINA_BUILDINGS_BOUNDS,
