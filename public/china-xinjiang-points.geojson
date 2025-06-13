@@ -1,0 +1,280 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [87.6278, 43.7930]
+      },
+      "properties": {
+        "factory_name": "Urumqi Steel Works",
+        "product_type": "Steel Beams"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [75.9871, 39.4700]
+      },
+      "properties": {
+        "factory_name": "Kashgar Cotton Mill",
+        "product_type": "Cotton Fabric"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [81.3167, 41.7667]
+      },
+      "properties": {
+        "factory_name": "Aksu Petrochemical Plant",
+        "product_type": "Polyethylene"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [93.4400, 42.7900]
+      },
+      "properties": {
+        "factory_name": "Hami Solar Panel Assembly",
+        "product_type": "Solar Panels"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [85.7167, 45.5667]
+      },
+      "properties": {
+        "factory_name": "Karamay Oil Refinery",
+        "product_type": "Gasoline"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [82.9333, 44.1333]
+      },
+      "properties": {
+        "factory_name": "Shihezi Textile Factory",
+        "product_type": "Yarn"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.2500, 37.1167]
+      },
+      "properties": {
+        "factory_name": "Hotan Jade Processing Unit",
+        "product_type": "Jade Crafts"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [88.2833, 47.8500]
+      },
+      "properties": {
+        "factory_name": "Altay Gold Mining Co.",
+        "product_type": "Gold Bullion"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [80.2667, 40.5333]
+      },
+      "properties": {
+        "factory_name": "Artux Cement Plant",
+        "product_type": "Cement"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [90.5167, 42.9500]
+      },
+      "properties": {
+        "factory_name": "Turpan Grape Products Ltd.",
+        "product_type": "Raisins and Wine"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [86.0500, 36.4167]
+      },
+      "properties": {
+        "factory_name": "Qiemo Fertilizer Production",
+        "product_type": "Chemical Fertilizers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [78.6833, 40.7167]
+      },
+      "properties": {
+        "factory_name": "Wushi Coal Processing",
+        "product_type": "Processed Coal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [94.6667, 40.1333]
+      },
+      "properties": {
+        "factory_name": "Dunhuang Agricultural Machinery",
+        "product_type": "Tractors"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [84.9167, 46.6000]
+      },
+      "properties": {
+        "factory_name": "Tacheng Leather Goods",
+        "product_type": "Leather Boots"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [82.1500, 44.9167]
+      },
+      "properties": {
+        "factory_name": "Bole Wind Turbine Manufacturing",
+        "product_type": "Wind Turbine Blades"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [73.9667, 38.2667]
+      },
+      "properties": {
+        "factory_name": "Tashkurgan Mineral Water Bottling",
+        "product_type": "Bottled Water"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [91.1333, 43.9833]
+      },
+      "properties": {
+        "factory_name": "Barkol Chemical Solvents",
+        "product_type": "Industrial Solvents"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [87.1000, 34.5000]
+      },
+      "properties": {
+        "factory_name": "Niya Carpet Weaving House",
+        "product_type": "Handwoven Carpets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [79.8000, 41.2000]
+      },
+      "properties": {
+        "factory_name": "Tumxuk Tomato Processing",
+        "product_type": "Tomato Paste"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [89.1833, 47.7000]
+      },
+      "properties": {
+        "factory_name": "Fuhai Industrial Parts",
+        "product_type": "Machined Components"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [83.3833, 46.8167]
+      },
+      "properties": {
+        "factory_name": "Emin Sugar Refinery",
+        "product_type": "Refined Sugar"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [76.6500, 39.7167]
+      },
+      "properties": {
+        "factory_name": "Shule Garments Inc.",
+        "product_type": "Clothing Apparel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [92.7667, 37.3667]
+      },
+      "properties": {
+        "factory_name": "Ruoqiang Potash Mining",
+        "product_type": "Potash"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [85.3500, 43.1167]
+      },
+      "properties": {
+        "factory_name": "Kuytun Electronics Assembly",
+        "product_type": "Consumer Electronics"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.7000, 38.9167]
+      },
+      "properties": {
+        "factory_name": "Yarkant Paper Mill",
+        "product_type": "Recycled Paper"
+      }
+    }
+  ]
+}

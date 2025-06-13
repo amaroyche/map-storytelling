@@ -1,0 +1,15 @@
+@use 'vars' as *;
+@use 'sass:color';
+
+.observer-debugger {
+  display: none;
+
+  position: fixed;
+  bottom: 3vh;
+  left: 3vw;
+  background-color: $sectionDarkBackground;
+  border: 1px solid whitesmoke;
+  border-radius: $borderRadius;
+  padding: 1vw;
+  z-index: 2;
+}
